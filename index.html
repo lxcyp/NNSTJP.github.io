@@ -1,0 +1,290 @@
+<html>
+	<head>
+		<title>WILL IT CRIT?</title>
+		<link rel="stylesheet" href="CriticalStyle.css">
+		<script>
+			function TabLeft()
+				{
+					document.getElementById('Left').style.margin = '0 0 0 15%';
+					document.getElementById('TabClass').style.margin = '0 0 0 0';
+					document.getElementById('Right').style.margin = '0 0 0 90%';
+					document.getElementById('TabCritical').style.margin = '0 0 0 100%';
+				}
+			function TabMiddle()
+				{
+					document.getElementById('Left').style.margin = '0 0 0 0%';
+					document.getElementById('TabClass').style.margin = '0 0 0 -25%';
+					document.getElementById('Right').style.margin = '0 0 0 90%';
+					document.getElementById('TabCritical').style.margin = '0 0 0 100%';
+				}
+			function TabRight()
+				{
+					document.getElementById('Left').style.margin = '0 0 0 0';
+					document.getElementById('TabClass').style.margin = '0 0 0 -25%';
+					document.getElementById('Right').style.margin = '0 0 0 50%';
+					document.getElementById('TabCritical').style.margin = '0 0 0 50%';
+				}
+			var ActiveClassM;
+			var ActiveClassS;
+			var Parsed;
+			function SetClassM(ClassM)
+				{
+					if(ClassM.value == ActiveClassS && ClassM.value != "Ph")
+						{
+							SetClassS(ActiveClassM);
+						}
+					ActiveClassM = ClassM.value;
+					document.getElementById("CSHu").disabled = false;
+					document.getElementById("CSFi").disabled = false;
+					document.getElementById("CSRa").disabled = false;
+					document.getElementById("CSGu").disabled = false;
+					document.getElementById("CSFo").disabled = false;
+					document.getElementById("CSTe").disabled = false;
+					document.getElementById("CSBr").disabled = false;
+					document.getElementById("CSBo").disabled = false;
+					document.getElementById("CSSu").disabled = false;
+					document.getElementById("CSPh").disabled = false;
+					if(ActiveClassM == "Hu")
+						{
+							document.getElementById("CSHu").checked = false;
+							document.getElementById("CSHu").disabled = true;
+						}
+					if(ActiveClassM == "Fi")
+						{
+							document.getElementById("CSFi").checked = false;
+							document.getElementById("CSFi").disabled = true;
+						}
+					if(ActiveClassM == "Ra")
+						{
+							document.getElementById("CSRa").checked = false;
+							document.getElementById("CSRa").disabled = true;
+						}
+					if(ActiveClassM == "Gu")
+						{
+							document.getElementById("CSGu").checked = false;
+							document.getElementById("CSGu").disabled = true;
+						}
+					if(ActiveClassM == "Fo")
+						{
+							document.getElementById("CSFo").checked = false;
+							document.getElementById("CSFo").disabled = true;
+						}
+					if(ActiveClassM == "Te")
+						{
+							document.getElementById("CSTe").checked = false;
+							document.getElementById("CSTe").disabled = true;
+						}
+					if(ActiveClassM == "Br")
+						{
+							document.getElementById("CSBr").checked = false;
+							document.getElementById("CSBr").disabled = true;
+						}
+					if(ActiveClassM == "Bo")
+						{
+							document.getElementById("CSBo").checked = false;
+							document.getElementById("CSBo").disabled = true;
+						}
+					if(ActiveClassM == "Su")
+						{
+							document.getElementById("CSSu").checked = false;
+							document.getElementById("CSSu").disabled = true;
+						}
+					if(ActiveClassM == "Hr")
+						{
+							document.getElementById("CSHu").checked = false;
+							document.getElementById("CSFi").checked = false;
+							document.getElementById("CSRa").checked = false;
+							document.getElementById("CSGu").checked = false;
+							document.getElementById("CSFo").checked = false;
+							document.getElementById("CSTe").checked = false;
+							document.getElementById("CSBr").checked = false;
+							document.getElementById("CSBo").checked = false;
+							document.getElementById("CSSu").checked = false;
+							document.getElementById("CSPh").checked = false;
+							document.getElementById("CSHu").disabled = true;
+							document.getElementById("CSFi").disabled = true;
+							document.getElementById("CSRa").disabled = true;
+							document.getElementById("CSGu").disabled = true;
+							document.getElementById("CSFo").disabled = true;
+							document.getElementById("CSTe").disabled = true;
+							document.getElementById("CSBr").disabled = true;
+							document.getElementById("CSBo").disabled = true;
+							document.getElementById("CSSu").disabled = true;
+							document.getElementById("CSPh").disabled = true;
+						}
+					if(ActiveClassM == "Ph")
+						{
+							document.getElementById("CSHu").checked = false;
+							document.getElementById("CSFi").checked = false;
+							document.getElementById("CSRa").checked = false;
+							document.getElementById("CSGu").checked = false;
+							document.getElementById("CSFo").checked = false;
+							document.getElementById("CSTe").checked = false;
+							document.getElementById("CSBr").checked = false;
+							document.getElementById("CSBo").checked = false;
+							document.getElementById("CSSu").checked = false;
+							document.getElementById("CSPh").checked = false;
+							document.getElementById("CSHu").disabled = true;
+							document.getElementById("CSFi").disabled = true;
+							document.getElementById("CSRa").disabled = true;
+							document.getElementById("CSGu").disabled = true;
+							document.getElementById("CSFo").disabled = true;
+							document.getElementById("CSTe").disabled = true;
+							document.getElementById("CSBr").disabled = true;
+							document.getElementById("CSBo").disabled = true;
+							document.getElementById("CSSu").disabled = true;
+							document.getElementById("CSPh").disabled = true;
+						}
+				}
+			function SetClassS(ClassS)
+				{
+					ActiveClassS = ClassS;
+					document.getElementById("CSHu").checked = false;
+					document.getElementById("CSFi").checked = false;
+					document.getElementById("CSRa").checked = false;
+					document.getElementById("CSGu").checked = false;
+					document.getElementById("CSFo").checked = false;
+					document.getElementById("CSTe").checked = false;
+					document.getElementById("CSBr").checked = false;
+					document.getElementById("CSBo").checked = false;
+					document.getElementById("CSSu").checked = false;
+					document.getElementById("CSPh").checked = false;
+					if(ActiveClassS == "Hu")
+						{
+							document.getElementById("CSHu").checked = true;
+						}
+					if(ActiveClassS == "Fi")
+						{
+							document.getElementById("CSFi").checked = true;
+						}
+					if(ActiveClassS == "Ra")
+						{
+							document.getElementById("CSRa").checked = true;
+						}
+					if(ActiveClassS == "Gu")
+						{
+							document.getElementById("CSGu").checked = true;
+						}
+					if(ActiveClassS == "Fo")
+						{
+							document.getElementById("CSFo").checked = true;
+						}
+					if(ActiveClassS == "Te")
+						{
+							document.getElementById("CSTe").checked = true;
+						}
+					if(ActiveClassS == "Br")
+						{
+							document.getElementById("CSBr").checked = true;
+						}
+					if(ActiveClassS == "Bo")
+						{
+							document.getElementById("CSBo").checked = true;
+						}
+					if(ActiveClassS == "Su")
+						{
+							document.getElementById("CSSu").checked = true;
+						}
+					if(ActiveClassS == "Ph")
+						{
+							document.getElementById("CSPh").checked = true;
+						}
+				}
+			function Parse()
+				{
+					document.getElementById("Parse").innerHTML = Parsed;
+				}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div id="Main" class="Tab">
+				<span id="FontSize40" style="color:#800000">WILL IT CRIT?</span><br>
+				<span id="FontSize20" style="color:#800000">A PSO2 CRITICAL BUILD SIMULATOR</span>
+			</div>
+			<div id="Left" class="Tab" style="clip-path:polygon(0 0, 10% 0, 10% 100%, 0 100%)" onclick="TabLeft()"><div class="TabTextLeft"><span id="FontSize40">CLASS</span></div></div>
+			<div id="Middle" class="Tab" onclick="TabMiddle()"></div>
+			<div id="Right" class="Tab" style="clip-path:polygon(0 0, 10% 0, 10% 100%, 0 100%)" onclick="TabRight()"><div class="TabTextRight"><span id="FontSize40">ABOUT</span></div></div>
+			<div id="TabClass" class="Tab">
+				<div style="padding: 4vw">
+					<table style="border-collapse:collapse">
+						<tr>
+							<td colspan="3" style="text-align:center"><span id="FontSize40">CLASS</span></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td></td>
+							<td style="text-align:center"><img src="https://pso2.arks-visiphone.com/images/0/05/UIClassMain.png"></td>
+							<td style="text-align:center"><img src="https://pso2.arks-visiphone.com/images/f/f2/UIClassSub.png"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/c/c5/UIClassHu.png" style="position:relative; top:2px"><span id="FontSize20">HUNTER</span></td>
+							<td><input type="radio" name="ClassM" value="Hu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/a/a7/UIClassFi.png" style="position:relative; top:2px"><span id="FontSize20">FIGHTER</span></td>
+							<td><input type="radio" name="ClassM" value="Fi" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/4/48/UIClassRa.png" style="position:relative; top:2px"><span id="FontSize20">RANGER</span></td>
+							<td><input type="radio" name="ClassM" value="Ra" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/9/94/UIClassGu.png" style="position:relative; top:2px"><span id="FontSize20">GUNNER</span></td>
+							<td><input type="radio" name="ClassM" value="Gu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/4/4b/UIClassFo.png" style="position:relative; top:2px"><span id="FontSize20">FORCE</span></td>
+							<td><input type="radio" name="ClassM" value="Fo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/b/b3/UIClassTe.png" style="position:relative; top:2px"><span id="FontSize20">TECHER</span></td>
+							<td><input type="radio" name="ClassM" value="Te" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/5/57/UIClassBr.png" style="position:relative; top:2px"><span id="FontSize20">BRAVER</span></td>
+							<td><input type="radio" name="ClassM" value="Br" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/0/00/UIClassBo.png" style="position:relative; top:2px"><span id="FontSize20">BOUNCER</span></td>
+							<td><input type="radio" name="ClassM" value="Bo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/f/f1/UIClassSu.png" style="position:relative; top:2px"><span id="FontSize20">SUMMONER</span></td>
+							<td><input type="radio" name="ClassM" value="Su" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+						<tr style="border-bottom:1px solid #808080">
+							<td><img src="https://pso2.arks-visiphone.com/images/7/78/UIClassHr.png" style="position:relative; top:2px"><span id="FontSize20">HERO</span></td>
+							<td><input type="radio" name="ClassM" value="Hr" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><img src="https://pso2.arks-visiphone.com/images/a/ac/UIClassCM.png" style="position:relative; top:2px"><span id="FontSize20">PHANTOM</span></td>
+							<td><input type="radio" name="ClassM" value="Ph" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+							<td><input id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="TabCritical" class="Tab">
+				<div style="padding: 4vw">
+					<span id="FontSize20"><a href="https://pso2.jp">PHANTASY STAR ONLINE 2</a> © <a href="https://sega.jp">SEGA</a></span><br>
+					<span id="FontSize10" style="color:#808080">ALL RIGHTS RESERVED</span><br><br><br>
+					<span id="FontSize20">NNSTJP (June#5470)</span><br>
+					<span id="FontSize10" style="color:#808080">CREATOR AND MAINTAINER</span><br><br><br>
+					<span id="FontSize20">Message June#5470 over at <a href="https://discord.gg/pso2">DISCORD</a></span><br>
+					<span id="FontSize10" style="color:#808080">FOR BUGS, ISSUES, OR SUGGESTIONS</span><br>
+				</div>
+			</div>
+		</div>
+		<p id="Parse"></p>
+	</body>
+</html>
