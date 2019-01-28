@@ -15,15 +15,15 @@ tr
 	}
 #FontSize40
 	{
-		font-size: calc(20px + (40 - 20) * ((100vw - 300px) / (1920 - 300)));
+		font-size: calc(24px + (40 - 24) * ((100vw - 600px) / (1920 - 480)));
 	}
 #FontSize20
 	{
-		font-size: calc(10px + (30 - 10) * ((100vw - 300px) / (1920 - 300)));
+		font-size: calc(12px + (20 - 12) * ((100vw - 600px) / (1920 - 480)));
 	}
 #FontSize10
 	{
-		font-size: calc(10px + (20 - 10) * ((100vw - 300px) / (1920 - 300)));
+		font-size: calc(12px + (16 - 12) * ((100vw - 600px) / (1920 - 480)));
 	}
 #Main
 	{
