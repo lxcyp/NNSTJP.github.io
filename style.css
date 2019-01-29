@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Product+Sans:800');
+@import url('https://fonts.googleapis.com/css?family=Product+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body
 	{
-		font-family: 'Product Sans';
+		font-family: "Roboto";
+		white-space: nowrap;
 		overflow: hidden;
 	}
 a
@@ -23,80 +25,129 @@ tr
 	{
 		position:relative;
 		top:50%;
-		left:5%;
-		width: 10px;
-		height: 10px;
 	}
-.FontSize40
+.TabClassFull
 	{
-		font-size: calc(24px + (40 - 24) * ((100vw - 600px) / (1920 - 480)));
+		display: none;
+		font-size: 1px;
 	}
-.FontSize20
+.TabAboutFont
 	{
-		font-size: calc(12px + (20 - 12) * ((100vw - 600px) / (1920 - 480)));
+		font-size: 10px;
 	}
-.FontSize10
+#TabTop
 	{
-		font-size: calc(12px + (16 - 12) * ((100vw - 600px) / (1920 - 480)));
-	}
-#TabMain
-	{
-		z-index: 2;
-		width: 100%;
-		height: 7.5vw;
+		z-index: 3;
 		top: 0;
+		width: 100%;
+		height: 96px;
 		background-color: #FFFFFF;
 		text-align: center;
 	}
 #TabLeft
 	{
 		z-index: 1;
-		width: 100%;
-		height: 80%;
-		margin-left: 0%;
-		top: 10%;
+		top: 96px;
+		width: 64px;
+		height: calc(100% - 96px);
 		background-color:#FFFFFF;
+		text-align: center;
 	}
 #TabMiddle
 	{
 		z-index: 0;
+		top: 96px;
 		width: 100%;
-		height: 80%;
-		top: 10%;
+		height: calc(100% - 96px);
 		background-color: #800000;
-	}
-#TabTextLeft
-	{
-		transform: rotate(-90deg);
-	}
-#TabTextRight
-	{
-		transform: rotate(90deg);
 	}
 #TabRight
 	{
 		z-index: 1;
-		width: 100%;
-		height: 80%;
-		margin-left: 90%;
-		top: 10%;
+		top: 96px;
+		left: calc(100% - 64px);
+		width: 64px;
+		height: calc(100% - 96px);
 		background-color: #FFFFFF;
+		text-align: center;
 	}
 #TabClass
 	{
-		z-index: 1;
-		width: 25%;
-		height: 80%;
-		margin-left: -25%;
-		top: 10%;
+		z-index: 2;
+		top: 96px;
+		width: 128px;
+		height: calc(100% - 96px);
+		padding: 0;
+		margin-left: -256px;
 		background-color: #FFFFFF;
 	}
 #TabAbout
 	{
-		z-index: 1;
-		width: 75%;
-		height: 90%;
+		z-index: 2;
+		top: 96px;
+		width: 256px;
+		height: calc(100% - 96px);
 		margin-left: 100%;
-		top: 10%;
 		background-color: #FFFFFF;
+	}
+@media(min-width: 600px)
+	{
+		.TabClassFull
+			{
+				display: inline;
+				font-size: calc(1px + (20 - 1) * ((100vw - 600px) / (1200 - 600)));
+			}
+		.TabClassShort
+			{
+				display: none;
+			}
+		.TabAboutFont
+			{
+				font-size: calc(10px + (20 - 10) * ((100vw - 600px) / (1200 - 600)));
+			}
+		#TabLeft
+			{
+				width: calc(64px + (128 - 64) * ((100vw - 600px) / (1200 - 600)));
+			}
+		#TabRight
+			{
+				left: calc(100% - calc(64px + (128 - 64) * ((100vw - 600px) / (1200 - 600))));
+				width: calc(64px + (128 - 64) * ((100vw - 600px) / (1200 - 600)));
+			}
+		#TabClass
+			{
+				width: calc(128px + (256 - 128) * ((100vw - 600px) / (1200 - 600)));
+			}
+		#TabAbout
+			{
+				width: calc(256px + (512 - 256) * ((100vw - 600px) / (1200 - 600)));
+			}
+	}
+@media(min-width: 1200px)
+	{
+		.TabClassFull
+			{
+				font-size: 20px;
+			}
+		.TabAboutFont
+			{
+				font-size: 20px;
+			}
+		#TabLeft
+			{
+				width: 128px;
+			}
+		#TabRight
+			{
+				left: calc(100% - 128px);
+				width: 128px;
+			}
+		#TabClass
+			{
+				width: 256px;
+			}
+		#TabAbout
+			{
+				width: 512px;
+			}
 	}
