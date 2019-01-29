@@ -3,6 +3,7 @@
 		<title>WILL IT CRIT?</title>
 		<link rel="stylesheet" href="style.css">
 		<script>
+			var TabLeftMargin;
 			var TabRightBool = false;
 			var TabRightMargin;
 			function Update()
@@ -16,21 +17,23 @@
 				}
 			function TabLeft()
 				{
-					document.getElementById("TabClass").style.margin = "0 0 0 0";
+					document.getElementById("TabClass").style.marginLeft = "0px";
 					TabRightBool = false;
 					document.getElementById("TabAbout").style.transition = "0.5s";
-					document.getElementById("TabAbout").style.margin = "0 0 0 100%";
+					document.getElementById("TabAbout").style.marginLeft = "100%";
 				}
 			function TabMiddle()
 				{
-					document.getElementById("TabClass").style.margin = "0 0 0 -256px";
+					TabLeftMargin = 0 - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
+					document.getElementById("TabClass").style.marginLeft = TabLeftMargin;
 					TabRightBool = false;
 					document.getElementById("TabAbout").style.transition = "0.5s";
-					document.getElementById("TabAbout").style.margin = "0 0 0 100%";
+					document.getElementById("TabAbout").style.marginLeft = "100%";
 				}
 			function TabRight()
 				{
-					document.getElementById("TabClass").style.margin = "0 0 0 -256px";
+					TabLeftMargin = 0 - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
+					document.getElementById("TabClass").style.marginLeft = TabLeftMargin;
 					TabRightBool = true;
 					document.getElementById("TabAbout").style.transition = "0.5s";
 					TabRightMargin = window.innerWidth - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
@@ -211,89 +214,94 @@
 	<body style="background-color:#8080FF" onresize="Update()">
 		<div>
 			<div class="Tab" id="TabTop">
-				<span style="font-size:40; color:#800000">WILL IT CRIT?</span><br>
-				<span style="font-size:20; color:#800000">A PSO2 CRITICAL BUILD SIMULATOR</span>
+				<span style="font-size:40; color:#C0C0C0">WILL IT CRIT?</span><br>
+				<span style="font-size:20; color:#C0C0C0">A PSO2 CRITICAL BUILD SIMULATOR</span>
+			</div>
+			<div class="Tab" id="TabBottom">
+				<span style="font-size:20; color:#C0C0C0">CRIT DETAILS GO HERE</span><br>
 			</div>
 			<div class="Tab" id="TabLeft" style="clip-path:polygon(0 0, 192px 0, 192px 100%, 0 100%)" onmouseover="TabLeft()"><div class="TabText"><span style="font-size:20">CLASS</span></div></div>
-			<div class="Tab" id="TabMiddle" onmouseover="TabMiddle()"></div>
-			<div class="Tab" id="TabRight" style="clip-path:polygon(0 0, 192px 0, 192px 100%, 0 100%)" onmouseover="TabRight()"><div class="TabText" id="TabTextRight"><span style="font-size:20">ABOUT</span></div></div>
-			<div class="Tab" id="TabClass">
-				<div style="padding: 32px">
-					<table style="border-collapse:collapse">
-						<tr>
-							<td colspan="3" style="font-size:20px; text-align:center"><span>CLASS</span></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td></td>
-							<td style="text-align:center"><img src="PNG/UIClassMain.png"></td>
-							<td style="text-align:center"><img src="PNG/UIClassSub.png"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassHu.png" style="position:relative; top:2px"><span class="TabClassFull">HUNTER</span></td>
-							<td><input type="radio" name="ClassM" value="Hu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassFi.png" style="position:relative; top:2px"><span class="TabClassFull">FIGHTER</span></td>
-							<td><input type="radio" name="ClassM" value="Fi" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassRa.png" style="position:relative; top:2px"><span class="TabClassFull">RANGER</span></td>
-							<td><input type="radio" name="ClassM" value="Ra" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassGu.png" style="position:relative; top:2px"><span class="TabClassFull">GUNNER</span></td>
-							<td><input type="radio" name="ClassM" value="Gu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassFo.png" style="position:relative; top:2px"><span class="TabClassFull">FORCE</span></td>
-							<td><input type="radio" name="ClassM" value="Fo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassTe.png" style="position:relative; top:2px"><span class="TabClassFull">TECHER</span></td>
-							<td><input type="radio" name="ClassM" value="Te" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassBr.png" style="position:relative; top:2px"><span class="TabClassFull">BRAVER</span></td>
-							<td><input type="radio" name="ClassM" value="Br" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassBo.png" style="position:relative; top:2px"><span class="TabClassFull">BOUNCER</span></td>
-							<td><input type="radio" name="ClassM" value="Bo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassSu.png" style="position:relative; top:2px"><span class="TabClassFull">SUMMONER</span></td>
-							<td><input type="radio" name="ClassM" value="Su" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #808080">
-							<td><img src="PNG/UIClassHr.png" style="position:relative; top:2px"><span class="TabClassFull">HERO</span></td>
-							<td><input type="radio" name="ClassM" value="Hr" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><img src="PNG/UIClassCM.png" style="position:relative; top:2px"><span class="TabClassFull">PHANTOM</span></td>
-							<td><input type="radio" name="ClassM" value="Ph" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-							<td><input id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
-						</tr>
-					</table>
+			<div class="Tab" id="TabMiddle" onmouseover="TabMiddle()">
+				<div style="text-align:center">
+					ACTUAL SIM STUFF GO HERE
 				</div>
 			</div>
+			<div class="Tab" id="TabRight" style="clip-path:polygon(0 0, 192px 0, 192px 100%, 0 100%)" onmouseover="TabRight()"><div class="TabText"><span style="font-size:20">ABOUT</span></div></div>
+			<div class="Tab" id="TabClass">
+				<table style="margin:auto; border-collapse:collapse">
+					<tr>
+						<td colspan="3" style="font-size:20px; text-align:center"><span>CLASS</span></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td></td>
+						<td style="text-align:center"><img src="PNG/UIClassMain.png"></td>
+						<td style="text-align:center"><img src="PNG/UIClassSub.png"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassHu.png" style="position:relative; top:2px"><span class="TabClassFont">HUNTER</span></td>
+						<td><input type="radio" name="ClassM" value="Hu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassFi.png" style="position:relative; top:2px"><span class="TabClassFont">FIGHTER</span></td>
+						<td><input type="radio" name="ClassM" value="Fi" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassRa.png" style="position:relative; top:2px"><span class="TabClassFont">RANGER</span></td>
+						<td><input type="radio" name="ClassM" value="Ra" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassGu.png" style="position:relative; top:2px"><span class="TabClassFont">GUNNER</span></td>
+						<td><input type="radio" name="ClassM" value="Gu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassFo.png" style="position:relative; top:2px"><span class="TabClassFont">FORCE</span></td>
+						<td><input type="radio" name="ClassM" value="Fo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassTe.png" style="position:relative; top:2px"><span class="TabClassFont">TECHER</span></td>
+						<td><input type="radio" name="ClassM" value="Te" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassBr.png" style="position:relative; top:2px"><span class="TabClassFont">BRAVER</span></td>
+						<td><input type="radio" name="ClassM" value="Br" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassBo.png" style="position:relative; top:2px"><span class="TabClassFont">BOUNCER</span></td>
+						<td><input type="radio" name="ClassM" value="Bo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassSu.png" style="position:relative; top:2px"><span class="TabClassFont">SUMMONER</span></td>
+						<td><input type="radio" name="ClassM" value="Su" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+					<tr style="border-bottom:1px solid #808080">
+						<td><img src="PNG/UIClassHr.png" style="position:relative; top:2px"><span class="TabClassFont">HERO</span></td>
+						<td><input type="radio" name="ClassM" value="Hr" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><img src="PNG/UIClassCM.png" style="position:relative; top:2px"><span class="TabClassFont">PHANTOM</span></td>
+						<td><input type="radio" name="ClassM" value="Ph" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+						<td><input id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					</tr>
+				</table>
+			</div>
 			<div class="Tab" id="TabAbout">
-				<div class="TabAboutFont" style="padding: 32px">
-					<span><a href="https://pso2.jp">PHANTASY STAR ONLINE 2</a> © <a href="https://sega.jp">SEGA</a></span><br>
-					<span style="color:#808080">ALL RIGHTS RESERVED</span><br><br><br>
-					<span>NNSTJP (June#5470)</span><br>
-					<span style="color:#808080">CREATOR AND MAINTAINER</span><br><br><br>
-					<span>MESSAGE June#5470 AT <a href="https://discord.gg/pso2">DISCORD</a></span><br>
-					<span style="color:#808080">FOR BUGS, ISSUES, OR SUGGESTIONS</span><br>
+				<div style="padding-left:16px">
+					<span class="TabAboutFont"><a href="https://pso2.jp">PHANTASY STAR ONLINE 2</a> © <a href="https://sega.jp">SEGA</a></span><br>
+					<span class="TabAboutFont" style="color:#808080">ALL RIGHTS RESERVED</span><br><br><br>
+					<span class="TabAboutFont">NNSTJP (June#5470)</span><br>
+					<span class="TabAboutFont" style="color:#808080">CREATOR AND MAINTAINER</span><br><br><br>
+					<span class="TabAboutFont">MESSAGE June#5470 AT <a href="https://discord.gg/pso2">DISCORD</a></span><br>
+					<span class="TabAboutFont" style="color:#808080">FOR BUGS, ISSUES, OR SUGGESTIONS</span><br>
 				</div>
 			</div>
 		</div>
