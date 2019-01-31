@@ -2,554 +2,7 @@
 	<head>
 		<title>WILL IT CRIT?</title>
 		<link rel="stylesheet" href="style.css">
-		<script>
-			var TabLeftMargin;
-			var TabRightBool = false;
-			var TabRightMargin;
-			function ResizeUpdate()
-				{
-					if(TabRightBool)
-						{
-							document.getElementById("TabAbout").style.transition = "0s";
-							TabRightMargin = window.innerWidth - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
-							document.getElementById("TabAbout").style.marginLeft = TabRightMargin;
-						}
-				}
-			function TabLeft()
-				{
-					document.getElementById("TabClass").style.marginLeft = "0px";
-					TabRightBool = false;
-					document.getElementById("TabAbout").style.transition = "0.5s";
-					document.getElementById("TabAbout").style.marginLeft = "100%";
-				}
-			function TabMiddle()
-				{
-					TabLeftMargin = 0 - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
-					document.getElementById("TabClass").style.marginLeft = TabLeftMargin;
-					TabRightBool = false;
-					document.getElementById("TabAbout").style.transition = "0.5s";
-					document.getElementById("TabAbout").style.marginLeft = "100%";
-				}
-			function TabRight()
-				{
-					TabLeftMargin = 0 - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
-					document.getElementById("TabClass").style.marginLeft = TabLeftMargin;
-					TabRightBool = true;
-					document.getElementById("TabAbout").style.transition = "0.5s";
-					TabRightMargin = window.innerWidth - parseInt(window.getComputedStyle(document.getElementById("TabAbout")).getPropertyValue("width"));
-					document.getElementById("TabAbout").style.marginLeft = TabRightMargin;
-				}
-			var ActiveClassM;
-			var ActiveClassT;
-			var ActiveClassS;
-			var Parsed;
-			function SetClassM(ClassM)
-				{
-					ActiveClassT = ClassM;
-					if(ActiveClassT == ActiveClassS && ActiveClassT != "Ph")
-						{
-							SetClassS(ActiveClassM);
-						}
-					ActiveClassM = ClassM;
-					document.getElementById("CMHu").checked = false;
-					document.getElementById("CMFi").checked = false;
-					document.getElementById("CMRa").checked = false;
-					document.getElementById("CMGu").checked = false;
-					document.getElementById("CMFo").checked = false;
-					document.getElementById("CMTe").checked = false;
-					document.getElementById("CMBr").checked = false;
-					document.getElementById("CMBo").checked = false;
-					document.getElementById("CMSu").checked = false;
-					document.getElementById("CMHr").checked = false;
-					document.getElementById("CMPh").checked = false;
-					document.getElementById("CSHu").disabled = false;
-					document.getElementById("CSFi").disabled = false;
-					document.getElementById("CSRa").disabled = false;
-					document.getElementById("CSGu").disabled = false;
-					document.getElementById("CSFo").disabled = false;
-					document.getElementById("CSTe").disabled = false;
-					document.getElementById("CSBr").disabled = false;
-					document.getElementById("CSBo").disabled = false;
-					document.getElementById("CSSu").disabled = false;
-					document.getElementById("CSPh").disabled = false;
-					if(ActiveClassM == "Hu")
-						{
-							document.getElementById("CMHu").checked = true;
-							document.getElementById("CSHu").checked = false;
-							document.getElementById("CSHu").disabled = true;
-						}
-					if(ActiveClassM == "Fi")
-						{
-							document.getElementById("CMFi").checked = true;
-							document.getElementById("CSFi").checked = false;
-							document.getElementById("CSFi").disabled = true;
-						}
-					if(ActiveClassM == "Ra")
-						{
-							document.getElementById("CMRa").checked = true;
-							document.getElementById("CSRa").checked = false;
-							document.getElementById("CSRa").disabled = true;
-						}
-					if(ActiveClassM == "Gu")
-						{
-							document.getElementById("CMGu").checked = true;
-							document.getElementById("CSGu").checked = false;
-							document.getElementById("CSGu").disabled = true;
-						}
-					if(ActiveClassM == "Fo")
-						{
-							document.getElementById("CMFo").checked = true;
-							document.getElementById("CSFo").checked = false;
-							document.getElementById("CSFo").disabled = true;
-						}
-					if(ActiveClassM == "Te")
-						{
-							document.getElementById("CMTe").checked = true;
-							document.getElementById("CSTe").checked = false;
-							document.getElementById("CSTe").disabled = true;
-						}
-					if(ActiveClassM == "Br")
-						{
-							document.getElementById("CMBr").checked = true;
-							document.getElementById("CSBr").checked = false;
-							document.getElementById("CSBr").disabled = true;
-						}
-					if(ActiveClassM == "Bo")
-						{
-							document.getElementById("CMBo").checked = true;
-							document.getElementById("CSBo").checked = false;
-							document.getElementById("CSBo").disabled = true;
-						}
-					if(ActiveClassM == "Su")
-						{
-							document.getElementById("CMSu").checked = true;
-							document.getElementById("CSSu").checked = false;
-							document.getElementById("CSSu").disabled = true;
-						}
-					if(ActiveClassM == "Hr")
-						{
-							document.getElementById("CMHr").checked = true;
-							document.getElementById("CSHu").checked = false;
-							document.getElementById("CSFi").checked = false;
-							document.getElementById("CSRa").checked = false;
-							document.getElementById("CSGu").checked = false;
-							document.getElementById("CSFo").checked = false;
-							document.getElementById("CSTe").checked = false;
-							document.getElementById("CSBr").checked = false;
-							document.getElementById("CSBo").checked = false;
-							document.getElementById("CSSu").checked = false;
-							document.getElementById("CSPh").checked = false;
-							document.getElementById("CSHu").disabled = true;
-							document.getElementById("CSFi").disabled = true;
-							document.getElementById("CSRa").disabled = true;
-							document.getElementById("CSGu").disabled = true;
-							document.getElementById("CSFo").disabled = true;
-							document.getElementById("CSTe").disabled = true;
-							document.getElementById("CSBr").disabled = true;
-							document.getElementById("CSBo").disabled = true;
-							document.getElementById("CSSu").disabled = true;
-							document.getElementById("CSPh").disabled = true;
-							ActiveClassS = "";
-						}
-					if(ActiveClassM == "Ph")
-						{
-							document.getElementById("CMPh").checked = true;
-							document.getElementById("CSHu").checked = false;
-							document.getElementById("CSFi").checked = false;
-							document.getElementById("CSRa").checked = false;
-							document.getElementById("CSGu").checked = false;
-							document.getElementById("CSFo").checked = false;
-							document.getElementById("CSTe").checked = false;
-							document.getElementById("CSBr").checked = false;
-							document.getElementById("CSBo").checked = false;
-							document.getElementById("CSSu").checked = false;
-							document.getElementById("CSPh").checked = false;
-							document.getElementById("CSHu").disabled = true;
-							document.getElementById("CSFi").disabled = true;
-							document.getElementById("CSRa").disabled = true;
-							document.getElementById("CSGu").disabled = true;
-							document.getElementById("CSFo").disabled = true;
-							document.getElementById("CSTe").disabled = true;
-							document.getElementById("CSBr").disabled = true;
-							document.getElementById("CSBo").disabled = true;
-							document.getElementById("CSSu").disabled = true;
-							document.getElementById("CSPh").disabled = true;
-						}
-					Update();
-				}
-			function SetClassS(ClassS)
-				{
-					ActiveClassM = ActiveClassT;
-					ActiveClassS = ClassS;
-					document.getElementById("CSHu").checked = false;
-					document.getElementById("CSFi").checked = false;
-					document.getElementById("CSRa").checked = false;
-					document.getElementById("CSGu").checked = false;
-					document.getElementById("CSFo").checked = false;
-					document.getElementById("CSTe").checked = false;
-					document.getElementById("CSBr").checked = false;
-					document.getElementById("CSBo").checked = false;
-					document.getElementById("CSSu").checked = false;
-					document.getElementById("CSPh").checked = false;
-					if(ActiveClassS == "Hu")
-						{
-							document.getElementById("CSHu").checked = true;
-						}
-					if(ActiveClassS == "Fi")
-						{
-							document.getElementById("CSFi").checked = true;
-						}
-					if(ActiveClassS == "Ra")
-						{
-							document.getElementById("CSRa").checked = true;
-						}
-					if(ActiveClassS == "Gu")
-						{
-							document.getElementById("CSGu").checked = true;
-						}
-					if(ActiveClassS == "Fo")
-						{
-							document.getElementById("CSFo").checked = true;
-						}
-					if(ActiveClassS == "Te")
-						{
-							document.getElementById("CSTe").checked = true;
-						}
-					if(ActiveClassS == "Br")
-						{
-							document.getElementById("CSBr").checked = true;
-						}
-					if(ActiveClassS == "Bo")
-						{
-							document.getElementById("CSBo").checked = true;
-						}
-					if(ActiveClassS == "Su")
-						{
-							document.getElementById("CSSu").checked = true;
-						}
-					if(ActiveClassS == "Ph")
-						{
-							document.getElementById("CSPh").checked = true;
-						}
-					Update();
-				}
-			function Update()
-				{
-					var TabCritList;
-					document.getElementById("TabCrit").style.visibility = "visible";
-					if(ActiveClassM == "Hu" || ActiveClassS == "Hu")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassHu");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Hu" && ActiveClassS != "Hu")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassHu");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassHuFuryStanceCritical").selectedIndex = "0";
-							UpdateSkill("TabCritClassHuFuryStanceCritical");
-						}
-					if(ActiveClassM == "Fi")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassFiMain");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Fi")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassFiMain");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassFiCriticalStrike").selectedIndex = "0";
-							UpdateSkill("TabCritClassFiCriticalStrike");
-						}
-					if(ActiveClassM == "Fi" || ActiveClassS == "Fi")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassFi");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Fi" && ActiveClassS != "Fi")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassFi");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassFiStanceCritical").selectedIndex = "0";
-							UpdateSkill("TabCritClassFiStanceCritical");
-						}
-					if(ActiveClassM == "Gu")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassGuMain");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Gu")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassGuMain");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassGuTwinMachineGunMastery").selectedIndex = "0";
-							UpdateSkill("TabCritClassGuTwinMachineGunMastery");
-						}
-					if(ActiveClassM == "Gu" || ActiveClassS == "Gu")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassGu");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Gu" && ActiveClassS != "Gu")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassGu");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassGuZeroRangeCritical").selectedIndex = "0";
-							UpdateSkill("TabCritClassGuZeroRangeCritical");
-						}
-					if(ActiveClassM == "Br" || ActiveClassS == "Br")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassBr");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Br" && ActiveClassS != "Br")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassBr");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassBrKatanaGear").checked = false;
-							document.getElementById("TabCritClassBrStanceCritical").selectedIndex = "0";
-							UpdateSkill("TabCritClassBrKatanaGear");
-							UpdateSkill("TabCritClassBrStanceCritical");
-						}
-					if(ActiveClassM == "Bo" || ActiveClassS == "Bo")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassBo");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Bo" && ActiveClassS != "Bo")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassBo");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassBoStanceCritical").selectedIndex = "0";
-							UpdateSkill("TabCritClassBoStanceCritical");
-						}
-					if(ActiveClassM == "Hr" || ActiveClassS == "Hr")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassHr");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "visible";
-								}
-						}
-					if(ActiveClassM != "Hr" && ActiveClassS != "Hr")
-						{
-							TabCritList = document.getElementsByClassName("TabCritClassHr");
-							for(var Count = 0; Count < TabCritList.length; Count ++)
-								{
-									TabCritList[Count].style.visibility = "collapse";
-								}
-							document.getElementById("TabCritClassHrWeakAttackCritical").selectedIndex = "0";
-							UpdateSkill("TabCritClassHrWeakAttackCritical");
-						}
-				}
-			function UpdateSkill(Skill)
-				{
-					if(Skill.includes("Stance"))
-						{
-							if(document.getElementById(Skill).value == 0)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
-								}
-							else if(document.getElementById(Skill).value == 1)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "10%";
-								}
-							else if(document.getElementById(Skill).value == 2)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "16%";
-								}
-							else if(document.getElementById(Skill).value == 3)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "20%";
-								}
-							else if(document.getElementById(Skill).value == 4)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "23%";
-								}
-							else if(document.getElementById(Skill).value == 5)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "25%";
-								}
-							document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-						}
-					if(Skill == "TabCritClassFiCriticalStrike")
-						{
-							if(document.getElementById(Skill).value == 0)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-								}
-							else if(document.getElementById(Skill).value == 1)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "3%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "3%";
-								}
-							else if(document.getElementById(Skill).value == 2)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "6%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "6%";
-								}
-							else if(document.getElementById(Skill).value == 3)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "9%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "9%";
-								}
-							else if(document.getElementById(Skill).value == 4)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "12%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "12%";;
-								}
-							else if(document.getElementById(Skill).value == 5)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "15%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "15%";
-								}
-						}
-					if(Skill == "TabCritClassGuTwinMachineGunMastery")
-						{
-							document.getElementById(Skill + "ValueRate").innerHTML = "0%";
-							if(document.getElementById(Skill).value == 0)
-								{
-									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-								}
-							else if(document.getElementById(Skill).value == 1)
-								{
-									document.getElementById(Skill + "ValueDamage").innerHTML = "1%";
-								}
-							else if(document.getElementById(Skill).value == 2)
-								{
-									document.getElementById(Skill + "ValueDamage").innerHTML = "2%";
-								}
-							else if(document.getElementById(Skill).value == 3)
-								{
-									document.getElementById(Skill + "ValueDamage").innerHTML = "3%";
-								}
-							else if(document.getElementById(Skill).value == 4)
-								{
-									document.getElementById(Skill + "ValueDamage").innerHTML = "4%";
-								}
-							else if(document.getElementById(Skill).value == 5)
-								{
-									document.getElementById(Skill + "ValueDamage").innerHTML = "5%";
-								}
-						}
-					if(Skill == "TabCritClassGuZeroRangeCritical")
-						{
-							if(document.getElementById(Skill).value == 0)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
-								}
-							else if(document.getElementById(Skill).value == 1)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "20%";
-								}
-							else if(document.getElementById(Skill).value == 2)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "25%";
-								}
-							else if(document.getElementById(Skill).value == 3)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "32%";
-								}
-							else if(document.getElementById(Skill).value == 4)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "40%";
-								}
-							else if(document.getElementById(Skill).value == 5)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "50%";
-								}
-							document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-						}
-					if(Skill == "TabCritClassBrKatanaGear")
-						{
-							if(document.getElementById("TabCritClassBrKatanaGear").checked)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "50%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-								}
-							else
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
-									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-								}
-						}
-					if(Skill == "TabCritClassHrWeakAttackCritical")
-						{
-							if(document.getElementById(Skill).value == 0)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
-								}
-							else if(document.getElementById(Skill).value == 1)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "20%";
-								}
-							else if(document.getElementById(Skill).value == 2)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "30%";
-								}
-							else if(document.getElementById(Skill).value == 3)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "40%";
-								}
-							else if(document.getElementById(Skill).value == 4)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "50%";
-								}
-							else if(document.getElementById(Skill).value == 5)
-								{
-									document.getElementById(Skill + "ValueRate").innerHTML = "60%";
-								}
-							document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
-						}
-				}
-			function Parse()
-				{
-					document.getElementById("Parse").innerHTML = Parsed;
-				}
-		</script>
+		<script src="script.js"></script>
 	</head>
 	<body style="background-color:#8080FF" onresize="ResizeUpdate()">
 		<div>
@@ -558,7 +11,7 @@
 				<span style="font-size:20; color:#C0C0C0">A PSO2 CRITICAL BUILD SIMULATOR</span>
 			</div>
 			<div class="Tab" id="TabBottom">
-				<span style="font-size:20; color:#C0C0C0">CRIT DETAILS GO HERE</span><br>
+				<span style="font-size:20; color:#C0C0C0">BOTTOM TEXT</span><br>
 			</div>
 			<div class="Tab" id="TabLeft" onmouseover="TabLeft()"><div class="TabText"><span>CLASS</span></div></div>
 			<div class="Tab" id="TabMiddle" onmouseover="TabMiddle()">
@@ -569,74 +22,104 @@
 							<td class="TableRowRight"></td>
 							<td class="TableRowRight">RATE</td>
 							<td>DAMAGE</td>
+							<td>　　</td>
+							<td>EFFECTIVE</td>
 						</tr>
 						<tr class="TableRowTop">
 							<td class="TableRowRight"><input type="checkbox" style="position:relative; top:2px" checked disabled></td>
 							<td class="TableRowName"><img src="PNG/Class/UIClassMain.png" class="TabCritImage">NATURAL</td>
-							<td class="TableRowCrit">5%</td>
-							<td class="TableRowCrit">0%</td>
+							<td class="TableRowCrit"><span id="TabCritClassNaturalValueRate">5%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassNaturalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassNaturalValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassHu">
 							<td class="TableRowRight"><select id="TabCritClassHuFuryStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">FURY STANCE CRITICAL</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryStanceCritical.png" class="TabCritImage">FURY STANCE CRITICAL</td>
 							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassHuFuryStanceCriticalValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassFiMain">
 							<td class="TableRowRight"><select id="TabCritClassFiCriticalStrike" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">CRITICAL STRIKE</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillFiCriticalStrike.png" class="TabCritImage">CRITICAL STRIKE</td>
 							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassFiCriticalStrikeValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassFi">
 							<td class="TableRowRight"><select id="TabCritClassFiStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">BRAVE STANCE CRITICAL<br><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">WISE STANCE CRITICAL</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillFiBraveStanceCritical.png" class="TabCritImage">BRAVE STANCE CRITICAL<br><img src="PNG/Skill/UISkillFiWiseStanceCritical.png" class="TabCritImage">WISE STANCE CRITICAL</td>
 							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassFiStanceCriticalValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassGuMain">
 							<td class="TableRowRight"><select id="TabCritClassGuTwinMachineGunMastery" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">TWIN MACHINE GUN MASTERY</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillGuTwinMachineGunMastery.png" class="TabCritImage">TWIN MACHINE GUN MASTERY</td>
 							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassGuTwinMachineGunMasteryValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassGu">
 							<td class="TableRowRight"><select id="TabCritClassGuZeroRangeCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">ZERO RANGE CRITICAL</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillGuZeroRangeCritical.png" class="TabCritImage">ZERO RANGE CRITICAL</td>
 							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassGuZeroRangeCriticalValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassBr">
 							<td class="TableRowRight"><input id="TabCritClassBrKatanaGear" type="checkbox" style="position:relative; top:2px" onchange="UpdateSkill(this.id)"></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">KATANA GEAR</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillBrKatanaGear.png" class="TabCritImage">KATANA GEAR</td>
 							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassBrKatanaGearValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassBr">
 							<td class="TableRowRight"><select id="TabCritClassBrStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">AVERAGE STANCE CRITICAL<br><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">WEAK STANCE CRITICAL</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillBrAverageStanceCritical.png" class="TabCritImage">AVERAGE STANCE CRITICAL<br><img src="PNG/Skill/UISkillBrWeakStanceCritical.png" class="TabCritImage">WEAK STANCE CRITICAL</td>
 							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassBrStanceCriticalValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassBo">
 							<td class="TableRowRight"><select id="TabCritClassBoStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">ELEMENTAL STANCE CRITICAL<br><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">BREAK STANCE CRITICAL</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillBoElementalStanceCritical.png" class="TabCritImage">ELEMENTAL STANCE CRITICAL<br><img src="PNG/Skill/UISkillBoBreakStanceCritical.png" class="TabCritImage">BREAK STANCE CRITICAL</td>
 							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassBoStanceCriticalValueMath">100%</span></td>
 						</tr>
 						<tr class="TableRowTop TabCritClassHr">
 							<td class="TableRowRight"><select id="TabCritClassHrWeakAttackCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
 								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">WEAK ATTACK CRITICAL</td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHrWeakAttackCritical.png" class="TabCritImage">WEAK ATTACK CRITICAL</td>
 							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueDamage">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritClassHrWeakAttackCriticalValueMath">100%</span></td>
+						</tr>
+						<tr class="TableRowTop">
+							<td></td>
+							<td></td>
+							<td class="TableRowCrit"><span id="TabCritRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritDamage">100%</span></td>
+							<td></td>
+							<td class="TableRowMath"><span id="TabCritMath">100%</span></td>
 						</tr>
 					</table>
 				</div>

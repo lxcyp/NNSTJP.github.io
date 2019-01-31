@@ -37,6 +37,10 @@ tr
 		text-align:right;
 		border-left:1px solid #808080;
 	}
+.TableRowMath
+	{
+		text-align:right;
+	}
 .Tab
 	{
 		position:fixed;
