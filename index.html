@@ -6,7 +6,7 @@
 			var TabLeftMargin;
 			var TabRightBool = false;
 			var TabRightMargin;
-			function Update()
+			function ResizeUpdate()
 				{
 					if(TabRightBool)
 						{
@@ -40,15 +40,28 @@
 					document.getElementById("TabAbout").style.marginLeft = TabRightMargin;
 				}
 			var ActiveClassM;
+			var ActiveClassT;
 			var ActiveClassS;
 			var Parsed;
 			function SetClassM(ClassM)
 				{
-					if(ClassM.value == ActiveClassS && ClassM.value != "Ph")
+					ActiveClassT = ClassM;
+					if(ActiveClassT == ActiveClassS && ActiveClassT != "Ph")
 						{
 							SetClassS(ActiveClassM);
 						}
-					ActiveClassM = ClassM.value;
+					ActiveClassM = ClassM;
+					document.getElementById("CMHu").checked = false;
+					document.getElementById("CMFi").checked = false;
+					document.getElementById("CMRa").checked = false;
+					document.getElementById("CMGu").checked = false;
+					document.getElementById("CMFo").checked = false;
+					document.getElementById("CMTe").checked = false;
+					document.getElementById("CMBr").checked = false;
+					document.getElementById("CMBo").checked = false;
+					document.getElementById("CMSu").checked = false;
+					document.getElementById("CMHr").checked = false;
+					document.getElementById("CMPh").checked = false;
 					document.getElementById("CSHu").disabled = false;
 					document.getElementById("CSFi").disabled = false;
 					document.getElementById("CSRa").disabled = false;
@@ -61,51 +74,61 @@
 					document.getElementById("CSPh").disabled = false;
 					if(ActiveClassM == "Hu")
 						{
+							document.getElementById("CMHu").checked = true;
 							document.getElementById("CSHu").checked = false;
 							document.getElementById("CSHu").disabled = true;
 						}
 					if(ActiveClassM == "Fi")
 						{
+							document.getElementById("CMFi").checked = true;
 							document.getElementById("CSFi").checked = false;
 							document.getElementById("CSFi").disabled = true;
 						}
 					if(ActiveClassM == "Ra")
 						{
+							document.getElementById("CMRa").checked = true;
 							document.getElementById("CSRa").checked = false;
 							document.getElementById("CSRa").disabled = true;
 						}
 					if(ActiveClassM == "Gu")
 						{
+							document.getElementById("CMGu").checked = true;
 							document.getElementById("CSGu").checked = false;
 							document.getElementById("CSGu").disabled = true;
 						}
 					if(ActiveClassM == "Fo")
 						{
+							document.getElementById("CMFo").checked = true;
 							document.getElementById("CSFo").checked = false;
 							document.getElementById("CSFo").disabled = true;
 						}
 					if(ActiveClassM == "Te")
 						{
+							document.getElementById("CMTe").checked = true;
 							document.getElementById("CSTe").checked = false;
 							document.getElementById("CSTe").disabled = true;
 						}
 					if(ActiveClassM == "Br")
 						{
+							document.getElementById("CMBr").checked = true;
 							document.getElementById("CSBr").checked = false;
 							document.getElementById("CSBr").disabled = true;
 						}
 					if(ActiveClassM == "Bo")
 						{
+							document.getElementById("CMBo").checked = true;
 							document.getElementById("CSBo").checked = false;
 							document.getElementById("CSBo").disabled = true;
 						}
 					if(ActiveClassM == "Su")
 						{
+							document.getElementById("CMSu").checked = true;
 							document.getElementById("CSSu").checked = false;
 							document.getElementById("CSSu").disabled = true;
 						}
 					if(ActiveClassM == "Hr")
 						{
+							document.getElementById("CMHr").checked = true;
 							document.getElementById("CSHu").checked = false;
 							document.getElementById("CSFi").checked = false;
 							document.getElementById("CSRa").checked = false;
@@ -126,9 +149,11 @@
 							document.getElementById("CSBo").disabled = true;
 							document.getElementById("CSSu").disabled = true;
 							document.getElementById("CSPh").disabled = true;
+							ActiveClassS = "";
 						}
 					if(ActiveClassM == "Ph")
 						{
+							document.getElementById("CMPh").checked = true;
 							document.getElementById("CSHu").checked = false;
 							document.getElementById("CSFi").checked = false;
 							document.getElementById("CSRa").checked = false;
@@ -150,9 +175,11 @@
 							document.getElementById("CSSu").disabled = true;
 							document.getElementById("CSPh").disabled = true;
 						}
+					Update();
 				}
 			function SetClassS(ClassS)
 				{
+					ActiveClassM = ActiveClassT;
 					ActiveClassS = ClassS;
 					document.getElementById("CSHu").checked = false;
 					document.getElementById("CSFi").checked = false;
@@ -204,6 +231,319 @@
 						{
 							document.getElementById("CSPh").checked = true;
 						}
+					Update();
+				}
+			function Update()
+				{
+					var TabCritList;
+					document.getElementById("TabCrit").style.visibility = "visible";
+					if(ActiveClassM == "Hu" || ActiveClassS == "Hu")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassHu");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Hu" && ActiveClassS != "Hu")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassHu");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassHuFuryStanceCritical").selectedIndex = "0";
+							UpdateSkill("TabCritClassHuFuryStanceCritical");
+						}
+					if(ActiveClassM == "Fi")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassFiMain");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Fi")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassFiMain");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassFiCriticalStrike").selectedIndex = "0";
+							UpdateSkill("TabCritClassFiCriticalStrike");
+						}
+					if(ActiveClassM == "Fi" || ActiveClassS == "Fi")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassFi");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Fi" && ActiveClassS != "Fi")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassFi");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassFiStanceCritical").selectedIndex = "0";
+							UpdateSkill("TabCritClassFiStanceCritical");
+						}
+					if(ActiveClassM == "Gu")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassGuMain");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Gu")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassGuMain");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassGuTwinMachineGunMastery").selectedIndex = "0";
+							UpdateSkill("TabCritClassGuTwinMachineGunMastery");
+						}
+					if(ActiveClassM == "Gu" || ActiveClassS == "Gu")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassGu");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Gu" && ActiveClassS != "Gu")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassGu");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassGuZeroRangeCritical").selectedIndex = "0";
+							UpdateSkill("TabCritClassGuZeroRangeCritical");
+						}
+					if(ActiveClassM == "Br" || ActiveClassS == "Br")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassBr");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Br" && ActiveClassS != "Br")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassBr");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassBrKatanaGear").checked = false;
+							document.getElementById("TabCritClassBrStanceCritical").selectedIndex = "0";
+							UpdateSkill("TabCritClassBrKatanaGear");
+							UpdateSkill("TabCritClassBrStanceCritical");
+						}
+					if(ActiveClassM == "Bo" || ActiveClassS == "Bo")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassBo");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Bo" && ActiveClassS != "Bo")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassBo");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassBoStanceCritical").selectedIndex = "0";
+							UpdateSkill("TabCritClassBoStanceCritical");
+						}
+					if(ActiveClassM == "Hr" || ActiveClassS == "Hr")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassHr");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "visible";
+								}
+						}
+					if(ActiveClassM != "Hr" && ActiveClassS != "Hr")
+						{
+							TabCritList = document.getElementsByClassName("TabCritClassHr");
+							for(var Count = 0; Count < TabCritList.length; Count ++)
+								{
+									TabCritList[Count].style.visibility = "collapse";
+								}
+							document.getElementById("TabCritClassHrWeakAttackCritical").selectedIndex = "0";
+							UpdateSkill("TabCritClassHrWeakAttackCritical");
+						}
+				}
+			function UpdateSkill(Skill)
+				{
+					if(Skill.includes("Stance"))
+						{
+							if(document.getElementById(Skill).value == 0)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
+								}
+							else if(document.getElementById(Skill).value == 1)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "10%";
+								}
+							else if(document.getElementById(Skill).value == 2)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "16%";
+								}
+							else if(document.getElementById(Skill).value == 3)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "20%";
+								}
+							else if(document.getElementById(Skill).value == 4)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "23%";
+								}
+							else if(document.getElementById(Skill).value == 5)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "25%";
+								}
+							document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+						}
+					if(Skill == "TabCritClassFiCriticalStrike")
+						{
+							if(document.getElementById(Skill).value == 0)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+								}
+							else if(document.getElementById(Skill).value == 1)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "3%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "3%";
+								}
+							else if(document.getElementById(Skill).value == 2)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "6%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "6%";
+								}
+							else if(document.getElementById(Skill).value == 3)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "9%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "9%";
+								}
+							else if(document.getElementById(Skill).value == 4)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "12%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "12%";;
+								}
+							else if(document.getElementById(Skill).value == 5)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "15%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "15%";
+								}
+						}
+					if(Skill == "TabCritClassGuTwinMachineGunMastery")
+						{
+							document.getElementById(Skill + "ValueRate").innerHTML = "0%";
+							if(document.getElementById(Skill).value == 0)
+								{
+									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+								}
+							else if(document.getElementById(Skill).value == 1)
+								{
+									document.getElementById(Skill + "ValueDamage").innerHTML = "1%";
+								}
+							else if(document.getElementById(Skill).value == 2)
+								{
+									document.getElementById(Skill + "ValueDamage").innerHTML = "2%";
+								}
+							else if(document.getElementById(Skill).value == 3)
+								{
+									document.getElementById(Skill + "ValueDamage").innerHTML = "3%";
+								}
+							else if(document.getElementById(Skill).value == 4)
+								{
+									document.getElementById(Skill + "ValueDamage").innerHTML = "4%";
+								}
+							else if(document.getElementById(Skill).value == 5)
+								{
+									document.getElementById(Skill + "ValueDamage").innerHTML = "5%";
+								}
+						}
+					if(Skill == "TabCritClassGuZeroRangeCritical")
+						{
+							if(document.getElementById(Skill).value == 0)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
+								}
+							else if(document.getElementById(Skill).value == 1)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "20%";
+								}
+							else if(document.getElementById(Skill).value == 2)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "25%";
+								}
+							else if(document.getElementById(Skill).value == 3)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "32%";
+								}
+							else if(document.getElementById(Skill).value == 4)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "40%";
+								}
+							else if(document.getElementById(Skill).value == 5)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "50%";
+								}
+							document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+						}
+					if(Skill == "TabCritClassBrKatanaGear")
+						{
+							if(document.getElementById("TabCritClassBrKatanaGear").checked)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "50%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+								}
+							else
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
+									document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+								}
+						}
+					if(Skill == "TabCritClassHrWeakAttackCritical")
+						{
+							if(document.getElementById(Skill).value == 0)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "0%";
+								}
+							else if(document.getElementById(Skill).value == 1)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "20%";
+								}
+							else if(document.getElementById(Skill).value == 2)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "30%";
+								}
+							else if(document.getElementById(Skill).value == 3)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "40%";
+								}
+							else if(document.getElementById(Skill).value == 4)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "50%";
+								}
+							else if(document.getElementById(Skill).value == 5)
+								{
+									document.getElementById(Skill + "ValueRate").innerHTML = "60%";
+								}
+							document.getElementById(Skill + "ValueDamage").innerHTML = "0%";
+						}
 				}
 			function Parse()
 				{
@@ -211,7 +551,7 @@
 				}
 		</script>
 	</head>
-	<body style="background-color:#8080FF" onresize="Update()">
+	<body style="background-color:#8080FF" onresize="ResizeUpdate()">
 		<div>
 			<div class="Tab" id="TabTop">
 				<span style="font-size:40; color:#C0C0C0">WILL IT CRIT?</span><br>
@@ -220,77 +560,152 @@
 			<div class="Tab" id="TabBottom">
 				<span style="font-size:20; color:#C0C0C0">CRIT DETAILS GO HERE</span><br>
 			</div>
-			<div class="Tab" id="TabLeft" style="clip-path:polygon(0 0, 192px 0, 192px 100%, 0 100%)" onmouseover="TabLeft()"><div class="TabText"><span style="font-size:20">CLASS</span></div></div>
+			<div class="Tab" id="TabLeft" onmouseover="TabLeft()"><div class="TabText"><span>CLASS</span></div></div>
 			<div class="Tab" id="TabMiddle" onmouseover="TabMiddle()">
-				<div style="text-align:center">
-					ACTUAL SIM STUFF GO HERE
+				<div id="TabCrit">
+					<table>
+						<tr style="text-align:center">
+							<td class="TableRowRight"></td>
+							<td class="TableRowRight"></td>
+							<td class="TableRowRight">RATE</td>
+							<td>DAMAGE</td>
+						</tr>
+						<tr class="TableRowTop">
+							<td class="TableRowRight"><input type="checkbox" style="position:relative; top:2px" checked disabled></td>
+							<td class="TableRowName"><img src="PNG/Class/UIClassMain.png" class="TabCritImage">NATURAL</td>
+							<td class="TableRowCrit">5%</td>
+							<td class="TableRowCrit">0%</td>
+						</tr>
+						<tr class="TableRowTop TabCritClassHu">
+							<td class="TableRowRight"><select id="TabCritClassHuFuryStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">FURY STANCE CRITICAL</td>
+							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassFiMain">
+							<td class="TableRowRight"><select id="TabCritClassFiCriticalStrike" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">CRITICAL STRIKE</td>
+							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassFi">
+							<td class="TableRowRight"><select id="TabCritClassFiStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">BRAVE STANCE CRITICAL<br><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">WISE STANCE CRITICAL</td>
+							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassGuMain">
+							<td class="TableRowRight"><select id="TabCritClassGuTwinMachineGunMastery" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">TWIN MACHINE GUN MASTERY</td>
+							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassGu">
+							<td class="TableRowRight"><select id="TabCritClassGuZeroRangeCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">ZERO RANGE CRITICAL</td>
+							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassBr">
+							<td class="TableRowRight"><input id="TabCritClassBrKatanaGear" type="checkbox" style="position:relative; top:2px" onchange="UpdateSkill(this.id)"></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">KATANA GEAR</td>
+							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassBr">
+							<td class="TableRowRight"><select id="TabCritClassBrStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">AVERAGE STANCE CRITICAL<br><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">WEAK STANCE CRITICAL</td>
+							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassBo">
+							<td class="TableRowRight"><select id="TabCritClassBoStanceCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">ELEMENTAL STANCE CRITICAL<br><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">BREAK STANCE CRITICAL</td>
+							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueDamage">0%</span></td>
+						</tr>
+						<tr class="TableRowTop TabCritClassHr">
+							<td class="TableRowRight"><select id="TabCritClassHrWeakAttackCritical" style="position:relative; top:1px" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
+							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryCritical.png" class="TabCritImage">WEAK ATTACK CRITICAL</td>
+							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueRate">0%</span></td>
+							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueDamage">0%</span></td>
+						</tr>
+					</table>
 				</div>
 			</div>
-			<div class="Tab" id="TabRight" style="clip-path:polygon(0 0, 192px 0, 192px 100%, 0 100%)" onmouseover="TabRight()"><div class="TabText"><span style="font-size:20">ABOUT</span></div></div>
+			<div class="Tab" id="TabRight" onmouseover="TabRight()"><div class="TabText"><span>ABOUT</span></div></div>
 			<div class="Tab" id="TabClass">
-				<table style="margin:auto; border-collapse:collapse">
+				<table>
 					<tr>
-						<td colspan="3" style="font-size:20px; text-align:center"><span>CLASS</span></td>
+						<td colspan="3" style="text-align:center; font-size:20px"><span>CLASS</span></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
+					<tr style="text-align:center">
 						<td></td>
-						<td style="text-align:center"><img src="PNG/UIClassMain.png"></td>
-						<td style="text-align:center"><img src="PNG/UIClassSub.png"></td>
+						<td><img src="PNG/Class/UIClassMain.png"></td>
+						<td><img src="PNG/Class/UIClassSub.png"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassHu.png" style="position:relative; top:2px"><span class="TabClassFont">HUNTER</span></td>
-						<td><input type="radio" name="ClassM" value="Hu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassHu.png" class="TabClassImage"><span class="TabClassFont">HUNTER</span></td>
+						<td><input class="TabClassCheckbox" id="CMHu" type="checkbox" value="Hu" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassFi.png" style="position:relative; top:2px"><span class="TabClassFont">FIGHTER</span></td>
-						<td><input type="radio" name="ClassM" value="Fi" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassFi.png" class="TabClassImage"><span class="TabClassFont">FIGHTER</span></td>
+						<td><input class="TabClassCheckbox" id="CMFi" type="checkbox" value="Fi" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassRa.png" style="position:relative; top:2px"><span class="TabClassFont">RANGER</span></td>
-						<td><input type="radio" name="ClassM" value="Ra" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassRa.png" class="TabClassImage"><span class="TabClassFont">RANGER</span></td>
+						<td><input class="TabClassCheckbox" id="CMRa" type="checkbox" value="Ra" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassGu.png" style="position:relative; top:2px"><span class="TabClassFont">GUNNER</span></td>
-						<td><input type="radio" name="ClassM" value="Gu" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassGu.png" class="TabClassImage"><span class="TabClassFont">GUNNER</span></td>
+						<td><input class="TabClassCheckbox" id="CMGu" type="checkbox" value="Gu" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassFo.png" style="position:relative; top:2px"><span class="TabClassFont">FORCE</span></td>
-						<td><input type="radio" name="ClassM" value="Fo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassFo.png" class="TabClassImage"><span class="TabClassFont">FORCE</span></td>
+						<td><input class="TabClassCheckbox" id="CMFo" type="checkbox" value="Fo" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassTe.png" style="position:relative; top:2px"><span class="TabClassFont">TECHER</span></td>
-						<td><input type="radio" name="ClassM" value="Te" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassTe.png" class="TabClassImage"><span class="TabClassFont">TECHER</span></td>
+						<td><input class="TabClassCheckbox" id="CMTe" type="checkbox" value="Te" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassBr.png" style="position:relative; top:2px"><span class="TabClassFont">BRAVER</span></td>
-						<td><input type="radio" name="ClassM" value="Br" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassBr.png" class="TabClassImage"><span class="TabClassFont">BRAVER</span></td>
+						<td><input class="TabClassCheckbox" id="CMBr" type="checkbox" value="Br" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassBo.png" style="position:relative; top:2px"><span class="TabClassFont">BOUNCER</span></td>
-						<td><input type="radio" name="ClassM" value="Bo" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassBo.png" class="TabClassImage"><span class="TabClassFont">BOUNCER</span></td>
+						<td><input class="TabClassCheckbox" id="CMBo" type="checkbox" value="Bo" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassSu.png" style="position:relative; top:2px"><span class="TabClassFont">SUMMONER</span></td>
-						<td><input type="radio" name="ClassM" value="Su" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassSu.png" class="TabClassImage"><span class="TabClassFont">SUMMONER</span></td>
+						<td><input class="TabClassCheckbox" id="CMSu" type="checkbox" value="Su" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
-					<tr style="border-bottom:1px solid #808080">
-						<td><img src="PNG/UIClassHr.png" style="position:relative; top:2px"><span class="TabClassFont">HERO</span></td>
-						<td><input type="radio" name="ClassM" value="Hr" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassHr.png" class="TabClassImage"><span class="TabClassFont">HERO</span></td>
+						<td><input class="TabClassCheckbox" id="CMHr" type="checkbox" value="Hr" onclick="SetClassM(this.value)"></td>
 						<td></td>
 					</tr>
-					<tr>
-						<td><img src="PNG/UIClassCM.png" style="position:relative; top:2px"><span class="TabClassFont">PHANTOM</span></td>
-						<td><input type="radio" name="ClassM" value="Ph" onclick="SetClassM(this)" style="position:relative; top:-1px"></td>
-						<td><input id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)" style="position:relative; top:1px"></td>
+					<tr class="TableRowTop">
+						<td><img src="PNG/Class/UIClassCM.png" class="TabClassImage"><span class="TabClassFont">PHANTOM</span></td>
+						<td><input class="TabClassCheckbox" id="CMPh" type="checkbox" value="Ph" onclick="SetClassM(this.value)"></td>
+						<td><input class="TabClassCheckbox" id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)"></td>
 					</tr>
 				</table>
 			</div>
