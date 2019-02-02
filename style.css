@@ -19,9 +19,9 @@ tr
 	{
 		vertical-align:middle;
 	}
-.TableRowRight
+.TableRowLeft
 	{
-		border-right:1px solid #808080;
+		border-left:1px solid #808080;
 	}
 .TableRowTop
 	{
@@ -36,10 +36,6 @@ tr
 	{
 		text-align:right;
 		border-left:1px solid #808080;
-	}
-.TableRowMath
-	{
-		text-align:right;
 	}
 .Tab
 	{
@@ -73,6 +69,12 @@ tr
 		position:relative;
 		top:3px;
 		width:18px;
+	}
+.TabCritImageSKyuu
+	{
+		position:relative;
+		top:3px;
+		width:17px;
 	}
 .TabCritClassHu
 	{
