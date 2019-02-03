@@ -450,6 +450,7 @@ function UpdateRing()
 						document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%";
 						document.getElementById("TabCritRingRValueUDMG").innerHTML = (document.getElementById("TabCritRingRLv").value / 20 + 100).toFixed(2) + "%";
 						if(document.getElementById("TabCritRingRLv").value % 2 == 1) { document.getElementById("TabCritRingRValueUDMG").innerHTML = (parseFloat(document.getElementById("TabCritRingRValueUDMG").innerHTML) - 0.05).toFixed(2) + "%"; }
+						if(document.getElementById("TabCritRingRLv").value == 1) { document.getElementById("TabCritRingRValueUDMG").innerHTML = "100.10%"; }
 					}
 			}
 		UpdateCrit();
@@ -671,7 +672,7 @@ function UpdateCrit()
 		CritRate += parseInt(document.getElementById("TabCritClassBrStanceCriticalValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritClassBoStanceCriticalValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueRate").innerHTML);
-		CritRate += parseInt(document.getElementById("TabCritRingRValueRate").innerHTML);
+		CritRate += parseFloat(document.getElementById("TabCritRingRValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu1ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu2ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu3ValueRate").innerHTML);
@@ -709,7 +710,7 @@ function UpdateCrit()
 		CritUDMG *= parseInt(document.getElementById("TabCritClassBrStanceCriticalValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritClassBoStanceCriticalValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueUDMG").innerHTML) / 100;
-		CritUDMG *= parseInt(document.getElementById("TabCritRingRValueUDMG").innerHTML) / 100;
+		CritUDMG *= parseFloat(document.getElementById("TabCritRingRValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu3ValueUDMG").innerHTML) / 100;
