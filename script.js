@@ -231,6 +231,16 @@ function Update()
 			{
 				TabCritList = document.getElementsByClassName("TabCritClassFi");
 				for(var Count = 0; Count < TabCritList.length; Count ++) { TabCritList[Count].style.visibility = "visible"; }
+				if(document.getElementById("TabCritRingR").value == "Fi") 
+					{
+						document.getElementById("TabCritRingR").selectedIndex = "0";
+						document.getElementById("TabCritRingRLv").selectedIndex = "0";
+						document.getElementById("TabCritRingRValueRate").innerHTML = "0%";
+						document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%";
+						document.getElementById("TabCritRingRValueUDMG").innerHTML = "100%";
+						document.getElementById("TabCritRingRLv").style.display = "none";
+					}
+				document.getElementById("TabCritRingR").getElementsByTagName("option")[1].disabled = true;
 			}
 		if(ActiveClassM != "Fi" && ActiveClassS != "Fi")
 			{
@@ -238,6 +248,7 @@ function Update()
 				for(var Count = 0; Count < TabCritList.length; Count ++) { TabCritList[Count].style.visibility = "collapse"; }
 				document.getElementById("TabCritClassFiStanceCritical").selectedIndex = "0";
 				UpdateSkill("TabCritClassFiStanceCritical");
+				document.getElementById("TabCritRingR").getElementsByTagName("option")[1].disabled = false;
 			}
 		if(ActiveClassM == "Gu")
 			{
@@ -255,6 +266,16 @@ function Update()
 			{
 				TabCritList = document.getElementsByClassName("TabCritClassGu");
 				for(var Count = 0; Count < TabCritList.length; Count ++) { TabCritList[Count].style.visibility = "visible"; }
+				if(document.getElementById("TabCritRingR").value == "Gu")
+					{
+						document.getElementById("TabCritRingR").selectedIndex = "0";
+						document.getElementById("TabCritRingRLv").selectedIndex = "0";
+						document.getElementById("TabCritRingRValueRate").innerHTML = "0%";
+						document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%";
+						document.getElementById("TabCritRingRValueUDMG").innerHTML = "100%";
+						document.getElementById("TabCritRingRLv").style.display = "none";
+					}
+				document.getElementById("TabCritRingR").getElementsByTagName("option")[2].disabled = true;
 			}
 		if(ActiveClassM != "Gu" && ActiveClassS != "Gu")
 			{
@@ -262,6 +283,7 @@ function Update()
 				for(var Count = 0; Count < TabCritList.length; Count ++) { TabCritList[Count].style.visibility = "collapse"; }
 				document.getElementById("TabCritClassGuZeroRangeCritical").selectedIndex = "0";
 				UpdateSkill("TabCritClassGuZeroRangeCritical");
+				document.getElementById("TabCritRingR").getElementsByTagName("option")[2].disabled = false;
 			}
 		if(ActiveClassM == "Br" || ActiveClassS == "Br")
 			{
@@ -389,22 +411,54 @@ function UpdateSkill(Skill)
 				document.getElementById(Skill + "ValueCDMG").innerHTML = "100%";
 				document.getElementById(Skill + "ValueUDMG").innerHTML = "100%";
 			}
-		UpdateCrit()
+		UpdateCrit();
+	}
+function UpdateRing()
+	{
+		if(document.getElementById("TabCritRingR").value == "NA")
+			{
+				document.getElementById("TabCritRingRLv").selectedIndex = "0";
+				document.getElementById("TabCritRingRValueRate").innerHTML = "0%";
+				document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%";
+				document.getElementById("TabCritRingRValueUDMG").innerHTML = "100%";
+				document.getElementById("TabCritRingRLv").style.display = "none";
+			}
+		else
+			{
+				document.getElementById("TabCritRingRLv").style.display = "inline";
+				if(document.getElementById("TabCritRingR").value == "Fi")
+					{
+						document.getElementById("TabCritRingRValueRate").innerHTML = document.getElementById("TabCritRingRLv").value + "%";
+						if(document.getElementById("TabCritRingRLv").value >= 1) { document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%"; }
+						if(document.getElementById("TabCritRingRLv").value >= 6) { document.getElementById("TabCritRingRValueCDMG").innerHTML = "101%"; }
+						if(document.getElementById("TabCritRingRLv").value >= 11) { document.getElementById("TabCritRingRValueCDMG").innerHTML = "102%"; }
+						if(document.getElementById("TabCritRingRLv").value == 20) { document.getElementById("TabCritRingRValueCDMG").innerHTML = "103%"; }
+						document.getElementById("TabCritRingRValueUDMG").innerHTML = "100%";
+					}
+				if(document.getElementById("TabCritRingR").value == "Gu")
+					{
+						document.getElementById("TabCritRingRValueRate").innerHTML = "0%";
+						document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%";
+						if(document.getElementById("TabCritRingRLv").value >= 1) { document.getElementById("TabCritRingRValueUDMG").innerHTML = "100%"; }
+						if(document.getElementById("TabCritRingRLv").value >= 6) { document.getElementById("TabCritRingRValueUDMG").innerHTML = "101%"; }
+						if(document.getElementById("TabCritRingRLv").value >= 11) { document.getElementById("TabCritRingRValueUDMG").innerHTML = "102%"; }
+						if(document.getElementById("TabCritRingRLv").value == 20) { document.getElementById("TabCritRingRValueUDMG").innerHTML = "103%"; }
+					}
+				if(document.getElementById("TabCritRingR").value == "All")
+					{
+						document.getElementById("TabCritRingRValueRate").innerHTML = (document.getElementById("TabCritRingRLv").value / 2).toFixed(2) + "%";
+						document.getElementById("TabCritRingRValueCDMG").innerHTML = "100%";
+						document.getElementById("TabCritRingRValueUDMG").innerHTML = (document.getElementById("TabCritRingRLv").value / 20 + 100).toFixed(2) + "%";
+						if(document.getElementById("TabCritRingRLv").value % 2 == 1) { document.getElementById("TabCritRingRValueUDMG").innerHTML = (parseFloat(document.getElementById("TabCritRingRValueUDMG").innerHTML) - 0.05).toFixed(2) + "%"; }
+					}
+			}
+		UpdateCrit();
 	}
 function UpdateSKyuu(SKyuu)
 	{
-		if(SKyuu == null) { SKyuu = ""; }
-		document.getElementById("TabCritSKyuu1").disabled = !document.getElementById("TabCritSKyuu1List").checked;
-		if(!document.getElementById("TabCritSKyuu1List").checked)
-			{
-				document.getElementById("TabCritSKyuu1").selectedIndex = "0";
-				document.getElementById("TabCritSKyuu1ValueRate").innerHTML = "0%";
-				document.getElementById("TabCritSKyuu1ValueCDMG").innerHTML = "100%";
-				document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML = "100%";
-			}
 		if(SKyuu.includes("1"))
 			{
-				if(document.getElementById(SKyuu).value == "None")
+				if(document.getElementById(SKyuu).value == "NA")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
@@ -422,30 +476,6 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "103%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
-				if(document.getElementById(SKyuu).value == "UDMG1")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "102%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG2")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "103%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG3")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "104%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG4")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "105%";
-					}
 				if(document.getElementById(SKyuu).value == "ETC")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
@@ -453,17 +483,9 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
 			}
-		document.getElementById("TabCritSKyuu2").disabled = !document.getElementById("TabCritSKyuu2List").checked;
-		if(!document.getElementById("TabCritSKyuu2List").checked)
-			{
-				document.getElementById("TabCritSKyuu2").selectedIndex = "0";
-				document.getElementById("TabCritSKyuu2ValueRate").innerHTML = "0%";
-				document.getElementById("TabCritSKyuu2ValueCDMG").innerHTML = "100%";
-				document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML = "100%";
-			}
 		if(SKyuu.includes("2"))
 			{
-				if(document.getElementById(SKyuu).value == "None")
+				if(document.getElementById(SKyuu).value == "NA")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
@@ -495,33 +517,16 @@ function UpdateSKyuu(SKyuu)
 					}
 				if(document.getElementById(SKyuu).value == "CRate1")
 					{
+						document.getElementById("TabCritSKyuu1").selectedIndex = "3";
+						document.getElementById("TabCritSKyuu1ValueRate").innerHTML = "0%";
+						document.getElementById("TabCritSKyuu1ValueCDMG").innerHTML = "100%";
+						document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML = "100%";
+						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[0].disabled = true;
+						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[1].disabled = true;
+						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[2].disabled = true;
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "20%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG1")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "102%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG2")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "103%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG3")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "104%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG4")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "105%";
 					}
 				if(document.getElementById(SKyuu).value == "ETC")
 					{
@@ -530,17 +535,9 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
 			}
-		document.getElementById("TabCritSKyuu3").disabled = !document.getElementById("TabCritSKyuu3List").checked;
-		if(!document.getElementById("TabCritSKyuu3List").checked)
-			{
-				document.getElementById("TabCritSKyuu3").selectedIndex = "0";
-				document.getElementById("TabCritSKyuu3ValueRate").innerHTML = "0%";
-				document.getElementById("TabCritSKyuu3ValueCDMG").innerHTML = "100%";
-				document.getElementById("TabCritSKyuu3ValueUDMG").innerHTML = "100%";
-			}
 		if(SKyuu.includes("3"))
 			{
-				if(document.getElementById(SKyuu).value == "None")
+				if(document.getElementById(SKyuu).value == "NA")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
@@ -560,33 +557,16 @@ function UpdateSKyuu(SKyuu)
 					}
 				if(document.getElementById(SKyuu).value == "CRate1")
 					{
+						document.getElementById("TabCritSKyuu1").selectedIndex = "3";
+						document.getElementById("TabCritSKyuu1ValueRate").innerHTML = "0%";
+						document.getElementById("TabCritSKyuu1ValueCDMG").innerHTML = "100%";
+						document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML = "100%";
+						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[0].disabled = true;
+						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[1].disabled = true;
+						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[2].disabled = true;
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "20%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG1")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "102%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG2")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "103%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG3")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "104%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG4")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "105%";
 					}
 				if(document.getElementById(SKyuu).value == "ETC")
 					{
@@ -595,17 +575,9 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
 			}
-		document.getElementById("TabCritSKyuu4").disabled = !document.getElementById("TabCritSKyuu4List").checked;
-		if(!document.getElementById("TabCritSKyuu4List").checked)
-			{
-				document.getElementById("TabCritSKyuu4").selectedIndex = "0";
-				document.getElementById("TabCritSKyuu4ValueRate").innerHTML = "0%";
-				document.getElementById("TabCritSKyuu4ValueCDMG").innerHTML = "100%";
-				document.getElementById("TabCritSKyuu4ValueUDMG").innerHTML = "100%";
-			}
 		if(SKyuu.includes("4"))
 			{
-				if(document.getElementById(SKyuu).value == "None")
+				if(document.getElementById(SKyuu).value == "NA")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
@@ -623,24 +595,18 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "106%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
-				if(document.getElementById(SKyuu).value == "UDMG1")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "103%";
-					}
-				if(document.getElementById(SKyuu).value == "UDMG2")
-					{
-						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
-						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
-						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "113%";
-					}
 				if(document.getElementById(SKyuu).value == "ETC")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
+			}
+		if(document.getElementById("TabCritSKyuu2").value != "CRate1" && document.getElementById("TabCritSKyuu3").value != "CRate1")
+			{
+				document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[0].disabled = false;
+				document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[1].disabled = false;
+				document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[2].disabled = false;
 			}
 		UpdateCrit();
 	}
@@ -705,6 +671,7 @@ function UpdateCrit()
 		CritRate += parseInt(document.getElementById("TabCritClassBrStanceCriticalValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritClassBoStanceCriticalValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueRate").innerHTML);
+		CritRate += parseInt(document.getElementById("TabCritRingRValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu1ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu2ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu3ValueRate").innerHTML);
@@ -713,7 +680,7 @@ function UpdateCrit()
 		CritRate += parseInt(document.getElementById("TabCritETCBouncerValueRate").innerHTML);
 		if(CritRate < 0) { CritRate = 0; }
 		if(CritRate > 100) { CritRate = 100; }
-		document.getElementById("TabCritRate").innerHTML = CritRate + "%";
+		document.getElementById("TabCritRate").innerHTML = CritRate.toFixed(2) + "%";
 		CritCDMG = parseInt(document.getElementById("TabCritETCNaturalValueCDMG").innerHTML);
 		CritCDMG *= parseInt(document.getElementById("TabCritClassHuFuryStanceCriticalValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritClassFiCriticalStrikeValueCDMG").innerHTML) / 100;
@@ -724,6 +691,7 @@ function UpdateCrit()
 		CritCDMG *= parseInt(document.getElementById("TabCritClassBrStanceCriticalValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritClassBoStanceCriticalValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueCDMG").innerHTML) / 100;
+		CritCDMG *= parseInt(document.getElementById("TabCritRingRValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu1ValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu2ValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu3ValueCDMG").innerHTML) / 100;
@@ -741,6 +709,7 @@ function UpdateCrit()
 		CritUDMG *= parseInt(document.getElementById("TabCritClassBrStanceCriticalValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritClassBoStanceCriticalValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueUDMG").innerHTML) / 100;
+		CritUDMG *= parseInt(document.getElementById("TabCritRingRValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu3ValueUDMG").innerHTML) / 100;
@@ -760,6 +729,7 @@ function UpdateCrit()
 		document.getElementById("TabCritClassBrStanceCriticalValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritClassBrStanceCriticalValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritClassBrStanceCriticalValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritClassBoStanceCriticalValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritClassBoStanceCriticalValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritClassBoStanceCriticalValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritClassHrWeakAttackCriticalValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueUDMG").innerHTML) / 100).toFixed(2) + "%";
+		document.getElementById("TabCritRingRValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritRingRValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritRingRValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritSKyuu1ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu1ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritSKyuu2ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu2ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritSKyuu3ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu3ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu3ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
@@ -776,6 +746,7 @@ function UpdateCrit()
 		CritEDMG *= parseFloat(document.getElementById("TabCritClassBrStanceCriticalValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritClassBoStanceCriticalValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritClassHrWeakAttackCriticalValueEDMG").innerHTML) / 100;
+		CritEDMG *= parseFloat(document.getElementById("TabCritRingRValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu1ValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu2ValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu3ValueEDMG").innerHTML) / 100;
@@ -804,6 +775,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritClassBoStanceCriticalValueRate").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueRate").innerHTML) == 0) { document.getElementById("TabCritClassHrWeakAttackCriticalValueRate").style.display = "none"; }
 		else { document.getElementById("TabCritClassHrWeakAttackCriticalValueRate").style.display = "inline"; }
+		if(parseFloat(document.getElementById("TabCritRingRValueRate").innerHTML) == 0) { document.getElementById("TabCritRingRValueRate").style.display = "none"; }
+		else { document.getElementById("TabCritRingRValueRate").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu1ValueRate").innerHTML) == 0) { document.getElementById("TabCritSKyuu1ValueRate").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu1ValueRate").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu2ValueRate").innerHTML) == 0) { document.getElementById("TabCritSKyuu2ValueRate").style.display = "none"; }
@@ -837,6 +810,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritClassBoStanceCriticalValueCDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueCDMG").innerHTML) == 100) { document.getElementById("TabCritClassHrWeakAttackCriticalValueCDMG").style.display = "none"; }
 		else { document.getElementById("TabCritClassHrWeakAttackCriticalValueCDMG").style.display = "inline"; }
+		if(parseInt(document.getElementById("TabCritRingRValueCDMG").innerHTML) == 100) { document.getElementById("TabCritRingRValueCDMG").style.display = "none"; }
+		else { document.getElementById("TabCritRingRValueCDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu1ValueCDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu1ValueCDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu1ValueCDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu2ValueCDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu2ValueCDMG").style.display = "none"; }
@@ -870,6 +845,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritClassBoStanceCriticalValueUDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritClassHrWeakAttackCriticalValueUDMG").innerHTML) == 100) { document.getElementById("TabCritClassHrWeakAttackCriticalValueUDMG").style.display = "none"; }
 		else { document.getElementById("TabCritClassHrWeakAttackCriticalValueUDMG").style.display = "inline"; }
+		if(parseFloat(document.getElementById("TabCritRingRValueUDMG").innerHTML) == 100) { document.getElementById("TabCritRingRValueUDMG").style.display = "none"; }
+		else { document.getElementById("TabCritRingRValueUDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu1ValueUDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu1ValueUDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu1ValueUDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu2ValueUDMG").style.display = "none"; }
@@ -903,6 +880,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritClassBoStanceCriticalValueEDMG").style.display = "inline"; }
 		if(document.getElementById("TabCritClassHrWeakAttackCriticalValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritClassHrWeakAttackCriticalValueEDMG").style.display = "none"; }
 		else { document.getElementById("TabCritClassHrWeakAttackCriticalValueEDMG").style.display = "inline"; }
+		if(document.getElementById("TabCritRingRValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritRingRValueEDMG").style.display = "none"; }
+		else { document.getElementById("TabCritRingRValueEDMG").style.display = "inline"; }
 		if(document.getElementById("TabCritSKyuu1ValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritSKyuu1ValueEDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu1ValueEDMG").style.display = "inline"; }
 		if(document.getElementById("TabCritSKyuu2ValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritSKyuu2ValueEDMG").style.display = "none"; }

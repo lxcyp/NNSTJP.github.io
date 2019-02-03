@@ -70,12 +70,6 @@ tr
 		top:3px;
 		width:18px;
 	}
-.TabCritImageSKyuu
-	{
-		position:relative;
-		top:3px;
-		width:17px;
-	}
 .TabCritClassHu
 	{
 		visibility:collapse;
@@ -107,6 +101,30 @@ tr
 .TabCritClassHr
 	{
 		visibility:collapse;
+	}
+.TabCritSelectLv
+	{
+		position:relative;
+		top:-1px;
+		width:50px;
+		height:18px;
+	}
+.TabCritSelectLv option
+	{
+		width:50px;
+		height:18px;
+	}
+.TabCritSelect
+	{
+		position:relative;
+		top:-1px;
+		width:200px;
+		height:18px;
+	}
+.TabCritSelect option
+	{
+		width:200px;
+		height:18px;
 	}
 .TabAboutFont
 	{
