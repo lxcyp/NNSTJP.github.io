@@ -16,269 +16,273 @@
 			<div class="Tab" id="TabLeft" onmouseover="TabLeft()"><div class="TabText"><span>CLASS</span></div></div>
 			<div class="Tab" id="TabMiddle" onmouseover="TabMiddle()">
 				<div id="TabCrit">
-					<table>
-						<tr style="text-align:center">
-							<td></td>
-							<td></td>
-							<td class="TableRowLeft">RATE</td>
-							<td class="TableRowLeft">CDMG</td>
-							<td class="TableRowLeft">UDMG</td>
-							<td class="TableRowLeft">EDMG</td>
-						</tr>
-						<tr class="TableRowTop">
-							<td><input type="checkbox" style="position:relative; top:2px" checked disabled></td>
-							<td class="TableRowName"><img src="PNG/Class/UIClassMain.png" class="TabCritImage">NATURAL</td>
-							<td class="TableRowCrit"><span id="TabCritETCNaturalValueRate">5%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCNaturalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCNaturalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCNaturalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassHu">
-							<td><select class="TabCritSelectLv" id="TabCritClassHuFuryStanceCritical" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHuFuryStanceCritical.png" class="TabCritImage">FURY STANCE CRITICAL</td>
-							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHuFuryStanceCriticalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassFiMain">
-							<td><select class="TabCritSelectLv" id="TabCritClassFiCriticalStrike" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillFiCriticalStrike.png" class="TabCritImage">CRITICAL STRIKE</td>
-							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiCriticalStrikeValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassFi">
-							<td><select class="TabCritSelectLv" id="TabCritClassFiStanceCritical" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillFiBraveStanceCritical.png" class="TabCritImage">BRAVE STANCE CRITICAL<br><img src="PNG/Skill/UISkillFiWiseStanceCritical.png" class="TabCritImage">WISE STANCE CRITICAL</td>
-							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassFiStanceCriticalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassGuMain">
-							<td><select class="TabCritSelectLv" id="TabCritClassGuTwinMachineGunMastery" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillGuTwinMachineGunMastery.png" class="TabCritImage">TWIN MACHINE GUN MASTERY</td>
-							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassGu">
-							<td><select class="TabCritSelectLv" id="TabCritClassGuZeroRangeCritical" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillGuZeroRangeCritical.png" class="TabCritImage">ZERO RANGE CRITICAL</td>
-							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassGuZeroRangeCriticalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassBr">
-							<td><input id="TabCritClassBrKatanaGear" type="checkbox" style="position:relative; top:2px" onchange="UpdateSkill(this.id)"></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillBrKatanaGear.png" class="TabCritImage">KATANA GEAR</td>
-							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrKatanaGearValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassBr">
-							<td><select  class="TabCritSelectLv" id="TabCritClassBrStanceCritical" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillBrAverageStanceCritical.png" class="TabCritImage">AVERAGE STANCE CRITICAL<br><img src="PNG/Skill/UISkillBrWeakStanceCritical.png" class="TabCritImage">WEAK STANCE CRITICAL</td>
-							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBrStanceCriticalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassBo">
-							<td><select class="TabCritSelectLv" id="TabCritClassBoStanceCritical" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillBoElementalStanceCritical.png" class="TabCritImage">ELEMENTAL STANCE CRITICAL<br><img src="PNG/Skill/UISkillBoBreakStanceCritical.png" class="TabCritImage">BREAK STANCE CRITICAL</td>
-							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassBoStanceCriticalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop TabCritClassHr">
-							<td><select class="TabCritSelectLv" id="TabCritClassHrWeakAttackCritical" onchange="UpdateSkill(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillHrWeakAttackCritical.png" class="TabCritImage">WEAK ATTACK CRITICAL</td>
-							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritClassHrWeakAttackCriticalValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td><select class="TabCritSelectLv" id="TabCritRingRLv" style="display:none" onchange="UpdateRing()">
-								<option value="1">+ 1</option><option value="2">+ 2</option><option value="3">+ 3</option><option value="4">+ 4</option><option value="5">+ 5</option><option value="6">+ 6</option><option value="7">+ 7</option><option value="8">+ 8</option><option value="9">+ 9</option><option value="10">+ 10</option><option value="11">+ 11</option><option value="12">+ 12</option><option value="13">+ 13</option><option value="14">+ 14</option><option value="15">+ 15</option><option value="16">+ 16</option><option value="17">+ 17</option><option value="18">+ 18</option><option value="19">+ 19</option><option value="20">+ 20</option></select></td>
-							<td class="TableRowName"><img src="PNG/ETC/UIRing.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritRingR" onchange="UpdateRing()">
+					<div class="DivTable">
+						<div class="DivTableRow">
+							<div class="DivTableCell"></div>
+							<div class="DivTableCell"></div>
+							<div class="DivTableCell DivTableCellLeft">RATE</div>
+							<div class="DivTableCell DivTableCellLeft">CDMG</div>
+							<div class="DivTableCell DivTableCellLeft">UDMG</div>
+							<div class="DivTableCell DivTableCellLeft">EDMG</div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"><input type="checkbox" style="position:relative; top:2px" checked disabled></div>
+							<div class="DivTableCellName"><img src="PNG/Class/UIClassMain.png" class="TabCritImage">NATURAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritETCNaturalValueRate">5%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCNaturalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCNaturalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCNaturalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassHu">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassHuFuryStanceCritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillHuFuryStanceCritical.png" class="TabCritImage">FURY STANCE CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHuFuryStanceCriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHuFuryStanceCriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHuFuryStanceCriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHuFuryStanceCriticalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassFiMain">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassFiCriticalStrike" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillFiCriticalStrike.png" class="TabCritImage">CRITICAL STRIKE</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiCriticalStrikeValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiCriticalStrikeValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiCriticalStrikeValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiCriticalStrikeValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassFi">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassFiStanceCritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillFiBraveStanceCritical.png" class="TabCritImage">BRAVE STANCE CRITICAL<br><img src="PNG/Skill/UISkillFiWiseStanceCritical.png" class="TabCritImage">WISE STANCE CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiStanceCriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiStanceCriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiStanceCriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassFiStanceCriticalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassGuMain">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassGuTwinMachineGunMastery" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillGuTwinMachineGunMastery.png" class="TabCritImage">TWIN MACHINE GUN MASTERY</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuTwinMachineGunMasteryValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassGu">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassGuZeroRangeCritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillGuZeroRangeCritical.png" class="TabCritImage">ZERO RANGE CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuZeroRangeCriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuZeroRangeCriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuZeroRangeCriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassGuZeroRangeCriticalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassBr">
+							<div class="DivTableCell DivTableCellTop"><input id="TabCritClassBrKatanaGear" type="checkbox" style="position:relative; top:2px" onchange="UpdateSkill(this.id)"></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillBrKatanaGear.png" class="TabCritImage">KATANA GEAR</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrKatanaGearValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrKatanaGearValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrKatanaGearValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrKatanaGearValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassBr">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassBrStanceCritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillBrAverageStanceCritical.png" class="TabCritImage">AVERAGE STANCE CRITICAL<br><img src="PNG/Skill/UISkillBrWeakStanceCritical.png" class="TabCritImage">WEAK STANCE CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrStanceCriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrStanceCriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrStanceCriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBrStanceCriticalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassBo">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassBoStanceCritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillBoElementalStanceCritical.png" class="TabCritImage">ELEMENTAL STANCE CRITICAL<br><img src="PNG/Skill/UISkillBoBreakStanceCritical.png" class="TabCritImage">BREAK STANCE CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBoStanceCriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBoStanceCriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBoStanceCriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassBoStanceCriticalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow TabCritClassHr">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassHrWeakAttackCritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillHrWeakAttackCritical.png" class="TabCritImage">WEAK ATTACK CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHrWeakAttackCriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHrWeakAttackCriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHrWeakAttackCriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassHrWeakAttackCriticalValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritRingRLv" style="display:none" onchange="UpdateRing()">
+								<option value="1">+ 1</option><option value="2">+ 2</option><option value="3">+ 3</option><option value="4">+ 4</option><option value="5">+ 5</option>
+								<option value="6">+ 6</option><option value="7">+ 7</option><option value="8">+ 8</option><option value="9">+ 9</option><option value="10">+ 10</option>
+								<option value="11">+ 11</option><option value="12">+ 12</option><option value="13">+ 13</option><option value="14">+ 14</option><option value="15">+ 15</option>
+								<option value="16">+ 16</option><option value="17">+ 17</option><option value="18">+ 18</option><option value="19">+ 19</option><option value="20">+ 20</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/ETC/UIRing.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritRingR" onchange="UpdateRing()">
 								<option value="NA">N/A</option>
 								<option value="Fi">R/CRITICAL STRIKE</option>
 								<option value="Gu">R/PERFECT KEEPER</option>
-								<option value="All">R/EFFORT SYMBOL</option></select></td>
-							<td class="TableRowCrit"><span id="TabCritRingRValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritRingRValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritRingRValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritRingRValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td></td>
-							<td class="TableRowName"><img src="PNG/ETC/UISKyuu1.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu1" onchange="UpdateSKyuu(this.id)">
+								<option value="All">R/EFFORT SYMBOL</option></select></div>
+							<div class="DivTableCellCrit"><span id="TabCritRingRValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritRingRValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritRingRValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritRingRValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCellName"><img src="PNG/ETC/UISKyuu1.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu1" onchange="UpdateSKyuu(this.id)">
 								<option value="NA">N/A</option>
 								<option value="Rate1">S1: WISE SKILL</option>
 								<option value="CDMG1">S1: SKILLED STRIKE</option>
-								<option value="ETC">S1: ETC</option></select></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu1ValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu1ValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu1ValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu1ValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td></td>
-							<td class="TableRowName"><img src="PNG/ETC/UISKyuu2.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu2" onchange="UpdateSKyuu(this.id)">
+								<option value="ETC">S1: ETC</option></select></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCellName"><img src="PNG/ETC/UISKyuu2.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu2" onchange="UpdateSKyuu(this.id)">
 								<option value="NA">N/A</option>
 								<option value="Rate1">S2: WISE SKILL</option>
 								<option value="Rate2">S2: WISE SKILL 2</option>
 								<option value="CDMG1">S2: SKILLED STRIKE</option>
 								<option value="CDMG2">S2: SKILLED STRIKE 2</option>
 								<option value="CRate1">S2: NATURE'S SKILL</option>
-								<option value="ETC">S2: ETC</option></select></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu2ValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu2ValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu2ValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu2ValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td></td>
-							<td class="TableRowName"><img src="PNG/ETC/UISKyuu3.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu3" onchange="UpdateSKyuu(this.id)">
+								<option value="ETC">S2: ETC</option></select></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCellName"><img src="PNG/ETC/UISKyuu3.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu3" onchange="UpdateSKyuu(this.id)">
 								<option value="NA">N/A</option>
 								<option value="Rate1">S3: WISE SKILL</option>
 								<option value="CDMG1">S3: SKILLED STRIKE</option>
 								<option value="CRate1">S3: UMBRAGEOUS SKILL</option>
-								<option value="ETC">S3: ETC</option></select></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu3ValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu3ValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu3ValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu3ValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td></td>
-							<td class="TableRowName"><img src="PNG/ETC/UISKyuu4.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu4" onchange="UpdateSKyuu(this.id)">
+								<option value="ETC">S3: ETC</option></select></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCellName"><img src="PNG/ETC/UISKyuu4.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu4" onchange="UpdateSKyuu(this.id)">
 								<option value="NA">N/A</option>
 								<option value="Rate1">S4: OPPOSING SKILL</option>
 								<option value="Both1">S4: MYSTERIOUS STRIKE</option>
-								<option value="ETC">S4: ETC</option></select></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu4ValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu4ValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu4ValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritSKyuu4ValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td><select class="TabCritSelectLv" id="TabCritETCTechter" onchange="UpdateETC(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillTeShiftaCritical.png" class="TabCritImage">TECHTER SHIFTA</td>
-							<td class="TableRowCrit"><span id="TabCritETCTechterValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCTechterValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCTechterValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCTechterValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td><select class="TabCritSelectLv" id="TabCritETCBouncer" onchange="UpdateETC(this.id)">
-								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></td>
-							<td class="TableRowName"><img src="PNG/Skill/UISkillBoCriticalField.png" class="TabCritImage">BOUNCER CRITICAL FIELD</td>
-							<td class="TableRowCrit"><span id="TabCritETCBouncerValueRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCBouncerValueCDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCBouncerValueUDMG">100%</span></td>
-							<td class="TableRowCrit"><span id="TabCritETCBouncerValueEDMG"></span></td>
-						</tr>
-						<tr class="TableRowTop">
-							<td></td>
-							<td></td>
-							<td class="TableRowCrit" rowspan="2"><span id="TabCritRate">0%</span></td>
-							<td class="TableRowCrit"><span id="TabCritCDMG">100.00%</span></td>
-							<td class="TableRowCrit"><span id="TabCritUDMG">100.00%</span></td>
-							<td class="TableRowCrit" rowspan="2"><span id="TabCritEDMG">100.00%</span></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td class="TableRowCrit" colspan="2" style="text-align:center"><span id="TabCritTDMG">100.00%</span></td>
-						</tr>
-					</table>
+								<option value="ETC">S4: ETC</option></select></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritETCTechter" onchange="UpdateETC(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillTeShiftaCritical.png" class="TabCritImage">TECHTER SHIFTA</div>
+							<div class="DivTableCellCrit"><span id="TabCritETCTechterValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCTechterValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCTechterValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCTechterValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritETCBouncer" onchange="UpdateETC(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillBoCriticalField.png" class="TabCritImage">BOUNCER CRITICAL FIELD</div>
+							<div class="DivTableCellCrit"><span id="TabCritETCBouncerValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCBouncerValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCBouncerValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritETCBouncerValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCellCrit"><span id="TabCritRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritCDMG">100.00%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritUDMG">100.00%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritEDMG">100.00%</span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell"></div>
+							<div class="DivTableCell"></div>
+							<div class="DivTableCell"></div>
+							<div class="DivTableCell DivTableCellLeft" style="float:left; width:200%"><span id="TabCritTDMG">100.00%</span></div>
+							<div class="DivTableCell"></div>
+							<div class="DivTableCell DivTableCellLeft"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="Tab" id="TabRight" onmouseover="TabRight()"><div class="TabText"><span>ABOUT</span></div></div>
 			<div class="Tab" id="TabClass">
-				<table>
-					<tr>
-						<td colspan="3" style="text-align:center; font-size:20px"><span>CLASS</span></td>
-					</tr>
-					<tr style="text-align:center">
-						<td></td>
-						<td><img src="PNG/Class/UIClassMain.png"></td>
-						<td><img src="PNG/Class/UIClassSub.png"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassHu.png" class="TabClassImage"><span class="TabClassFont">HUNTER</span></td>
-						<td><input class="TabClassCheckbox" id="CMHu" type="checkbox" value="Hu" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassFi.png" class="TabClassImage"><span class="TabClassFont">FIGHTER</span></td>
-						<td><input class="TabClassCheckbox" id="CMFi" type="checkbox" value="Fi" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassRa.png" class="TabClassImage"><span class="TabClassFont">RANGER</span></td>
-						<td><input class="TabClassCheckbox" id="CMRa" type="checkbox" value="Ra" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassGu.png" class="TabClassImage"><span class="TabClassFont">GUNNER</span></td>
-						<td><input class="TabClassCheckbox" id="CMGu" type="checkbox" value="Gu" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassFo.png" class="TabClassImage"><span class="TabClassFont">FORCE</span></td>
-						<td><input class="TabClassCheckbox" id="CMFo" type="checkbox" value="Fo" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassTe.png" class="TabClassImage"><span class="TabClassFont">TECHER</span></td>
-						<td><input class="TabClassCheckbox" id="CMTe" type="checkbox" value="Te" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassBr.png" class="TabClassImage"><span class="TabClassFont">BRAVER</span></td>
-						<td><input class="TabClassCheckbox" id="CMBr" type="checkbox" value="Br" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassBo.png" class="TabClassImage"><span class="TabClassFont">BOUNCER</span></td>
-						<td><input class="TabClassCheckbox" id="CMBo" type="checkbox" value="Bo" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassSu.png" class="TabClassImage"><span class="TabClassFont">SUMMONER</span></td>
-						<td><input class="TabClassCheckbox" id="CMSu" type="checkbox" value="Su" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassHr.png" class="TabClassImage"><span class="TabClassFont">HERO</span></td>
-						<td><input class="TabClassCheckbox" id="CMHr" type="checkbox" value="Hr" onclick="SetClassM(this.value)"></td>
-						<td></td>
-					</tr>
-					<tr class="TableRowTop">
-						<td><img src="PNG/Class/UIClassCM.png" class="TabClassImage"><span class="TabClassFont">PHANTOM</span></td>
-						<td><input class="TabClassCheckbox" id="CMPh" type="checkbox" value="Ph" onclick="SetClassM(this.value)"></td>
-						<td><input class="TabClassCheckbox" id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)"></td>
-					</tr>
-				</table>
+				<div style="font-size:20px; text-align:center"><span>CLASS</span></div>
+				<div class="DivTable">
+					<div class="DivTableRow">
+						<div class="DivTableCell"></div>
+						<div class="DivTableCell"><img src="PNG/Class/UIClassMain.png"></div>
+						<div class="DivTableCell"><img src="PNG/Class/UIClassSub.png"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassHu.png" class="TabClassImage"><span class="TabClassFont">HUNTER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMHu" type="checkbox" value="Hu" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSHu" type="checkbox" value="Hu" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassFi.png" class="TabClassImage"><span class="TabClassFont">FIGHTER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMFi" type="checkbox" value="Fi" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSFi" type="checkbox" value="Fi" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassRa.png" class="TabClassImage"><span class="TabClassFont">RANGER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMRa" type="checkbox" value="Ra" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSRa" type="checkbox" value="Ra" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassGu.png" class="TabClassImage"><span class="TabClassFont">GUNNER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMGu" type="checkbox" value="Gu" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSGu" type="checkbox" value="Gu" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassFo.png" class="TabClassImage"><span class="TabClassFont">FORCE</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMFo" type="checkbox" value="Fo" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSFo" type="checkbox" value="Fo" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassTe.png" class="TabClassImage"><span class="TabClassFont">TECHER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMTe" type="checkbox" value="Te" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSTe" type="checkbox" value="Te" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassBr.png" class="TabClassImage"><span class="TabClassFont">BRAVER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMBr" type="checkbox" value="Br" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSBr" type="checkbox" value="Br" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassBo.png" class="TabClassImage"><span class="TabClassFont">BOUNCER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMBo" type="checkbox" value="Bo" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSBo" type="checkbox" value="Bo" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassSu.png" class="TabClassImage"><span class="TabClassFont">SUMMONER</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMSu" type="checkbox" value="Su" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSSu" type="checkbox" value="Su" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassHr.png" class="TabClassImage"><span class="TabClassFont">HERO</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMHr" type="checkbox" value="Hr" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassCM.png" class="TabClassImage"><span class="TabClassFont">PHANTOM</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMPh" type="checkbox" value="Ph" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+				</div>
 			</div>
 			<div class="Tab" id="TabAbout">
 				<div style="padding-left:16px">

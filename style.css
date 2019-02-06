@@ -10,14 +10,51 @@ a
 	{
 		color:inherit;
 	}
-table
+.DivTable
 	{
+		display:table;
 		margin:auto;
-		border-collapse:collapse;
+		text-align:center;
 	}
-tr
+.DivTableRow
 	{
-		vertical-align:middle;
+		display:table-row;
+	}
+.DivTableCell
+	{
+		display:table-cell;
+		padding:1px;
+	}
+.DivTableCellTop
+	{
+		border-top:1px solid #808080;
+	}
+.DivTableCellLeft
+	{
+		border-left:1px solid #808080;
+	}
+.DivTableCellClass
+	{
+		display:table-cell;
+		padding:1px;
+		border-top:1px solid #808080;
+		text-align:left;
+	}
+.DivTableCellName
+	{
+		display:table-cell;
+		padding:1px;
+		border-top:1px solid #808080;
+		border-left:1px solid #808080;
+		text-align:left;
+	}
+.DivTableCellCrit
+	{
+		display:table-cell;
+		padding:1px;
+		border-top:1px solid #808080;
+		border-left:1px solid #808080;
+		text-align:right;
 	}
 .TableRowLeft
 	{
