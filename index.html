@@ -4,7 +4,7 @@
 		<link rel="stylesheet" href="style.css">
 		<script src="script.js"></script>
 	</head>
-	<body style="background-color:#8080FF" onresize="ResizeUpdate()">
+	<body style="background-color:#FFFFFF" onresize="ResizeUpdate()">
 		<div>
 			<div class="Tab" id="TabTop">
 				<span style="font-size:40; color:#C0C0C0">WILL IT CRIT?</span><br>
@@ -136,9 +136,9 @@
 								<option value="Rate1">S1: WISE SKILL</option>
 								<option value="CDMG1">S1: SKILLED STRIKE</option>
 								<option value="ETC">S1: ETC</option></select></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueRate">0%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueCDMG">100%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueRate">0%</span><span class="TabCritSKyuu1ETC"><input class="TabCritNumber" id="TabCritSKyuu1ETCValueRate" type="number" min="0" max="100" value="0" maxLength="5" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueCDMG">100%</span><span class="TabCritSKyuu1ETC"><input class="TabCritNumber" id="TabCritSKyuu1ETCValueCDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueUDMG">100%</span><span class="TabCritSKyuu1ETC"><input class="TabCritNumber" id="TabCritSKyuu1ETCValueUDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
 							<div class="DivTableCellCrit"><span id="TabCritSKyuu1ValueEDMG"></span></div>
 						</div>
 						<div class="DivTableRow">
@@ -151,9 +151,9 @@
 								<option value="CDMG2">S2: SKILLED STRIKE 2</option>
 								<option value="CRate1">S2: NATURE'S SKILL</option>
 								<option value="ETC">S2: ETC</option></select></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueRate">0%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueCDMG">100%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueRate">0%</span><span class="TabCritSKyuu2ETC"><input class="TabCritNumber" id="TabCritSKyuu2ETCValueRate" type="number" min="0" max="100" value="0" maxLength="5" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueCDMG">100%</span><span class="TabCritSKyuu2ETC"><input class="TabCritNumber" id="TabCritSKyuu2ETCValueCDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueUDMG">100%</span><span class="TabCritSKyuu2ETC"><input class="TabCritNumber" id="TabCritSKyuu2ETCValueUDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
 							<div class="DivTableCellCrit"><span id="TabCritSKyuu2ValueEDMG"></span></div>
 						</div>
 						<div class="DivTableRow">
@@ -161,12 +161,13 @@
 							<div class="DivTableCellName"><img src="PNG/ETC/UISKyuu3.png" class="TabCritImage"><select class="TabCritSelect" id="TabCritSKyuu3" onchange="UpdateSKyuu(this.id)">
 								<option value="NA">N/A</option>
 								<option value="Rate1">S3: WISE SKILL</option>
+								<option value="Rate2">S3: SUCCESSIVE STRIKE</option>
 								<option value="CDMG1">S3: SKILLED STRIKE</option>
 								<option value="CRate1">S3: UMBRAGEOUS SKILL</option>
 								<option value="ETC">S3: ETC</option></select></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueRate">0%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueCDMG">100%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueRate">0%</span><span class="TabCritSKyuu3ETC"><input class="TabCritNumber" id="TabCritSKyuu3ETCValueRate" type="number" min="0" max="100" value="0" maxLength="5" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueCDMG">100%</span><span class="TabCritSKyuu3ETC"><input class="TabCritNumber" id="TabCritSKyuu3ETCValueCDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueUDMG">100%</span><span class="TabCritSKyuu3ETC"><input class="TabCritNumber" id="TabCritSKyuu3ETCValueUDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
 							<div class="DivTableCellCrit"><span id="TabCritSKyuu3ValueEDMG"></span></div>
 						</div>
 						<div class="DivTableRow">
@@ -176,10 +177,18 @@
 								<option value="Rate1">S4: OPPOSING SKILL</option>
 								<option value="Both1">S4: MYSTERIOUS STRIKE</option>
 								<option value="ETC">S4: ETC</option></select></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueRate">0%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueCDMG">100%</span></div>
-							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueRate">0%</span><span class="TabCritSKyuu4ETC"><input class="TabCritNumber" id="TabCritSKyuu4ETCValueRate" type="number" min="0" max="100" value="0" maxLength="5" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueCDMG">100%</span><span class="TabCritSKyuu4ETC"><input class="TabCritNumber" id="TabCritSKyuu4ETCValueCDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueUDMG">100%</span><span class="TabCritSKyuu4ETC"><input class="TabCritNumber" id="TabCritSKyuu4ETCValueUDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSKyuuETC(this.id)"></input>%</span></div>
 							<div class="DivTableCellCrit"><span id="TabCritSKyuu4ValueEDMG"></span></div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell DivTableCellTop"></div>
+							<div class="DivTableCellName"><img src="PNG/ETC/UISenzai.png" class="TabCritImage">POTENTIAL ABILITY</div>
+							<div class="DivTableCellCrit"><input class="TabCritNumber" id="TabCritSenzaiValueRate" type="number" min="0" max="100" value="0" maxLength="5" onchange="UpdateSenzai(this.id)"></input>%</div>
+							<div class="DivTableCellCrit"><input class="TabCritNumber" id="TabCritSenzaiValueCDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSenzai(this.id)"></input>%</div>
+							<div class="DivTableCellCrit"><input class="TabCritNumber" id="TabCritSenzaiValueUDMG" type="number" min="100" max="200" value="100" maxLength="6" onchange="UpdateSenzai(this.id)"></input>%</div>
+							<div class="DivTableCellCrit"><span id="TabCritSenzaiValueEDMG"></span></div>
 						</div>
 						<div class="DivTableRow">
 							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritETCTechter" onchange="UpdateETC(this.id)">

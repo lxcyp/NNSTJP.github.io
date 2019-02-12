@@ -109,35 +109,51 @@ a
 	}
 .TabCritClassHu
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassFiMain
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassFi
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassGuMain
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassGu
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassBr
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassBo
 	{
-		visibility:collapse;
+		visibility:none;
 	}
 .TabCritClassHr
 	{
-		visibility:collapse;
+		visibility:none;
+	}
+.TabCritSKyuu1ETC
+	{
+		display:none;
+	}
+.TabCritSKyuu2ETC
+	{
+		display:none;
+	}
+.TabCritSKyuu3ETC
+	{
+		display:none;
+	}
+.TabCritSKyuu4ETC
+	{
+		display:none;
 	}
 .TabCritSelectLv
 	{
@@ -162,6 +178,13 @@ a
 	{
 		width:200px;
 		height:18px;
+	}
+.TabCritNumber
+	{
+		float:left;
+		height:18px;
+		width:50px;
+		text-align:right
 	}
 .TabAboutFont
 	{
@@ -226,7 +249,7 @@ a
 	}
 #TabCrit
 	{
-		visibility:hidden;
+		display:none;
 		z-index:0;
 		width:100%;
 		height:100%;
@@ -311,10 +334,19 @@ a
 			}
 		#TabClass
 			{
-				width:224;
+				width:224px;
 			}
 		#TabAbout
 			{
 				width:512px;
 			}
+	}
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
+	{
+		-webkit-appearance: none;
+		margin: 0;
+	}
+input[type="number"]
+	{
+		-moz-appearance:textfield;
 	}
