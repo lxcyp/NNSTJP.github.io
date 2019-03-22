@@ -73,6 +73,20 @@ a
 		transition:0.5s;
 		display:none;
 	}
+.MainMenuText
+	{
+		width:160px;
+		height:32px;
+		display:block;
+		line-height:32px;
+		box-shadow:inset -2px 0px 0px 0px #8080E0;
+	}
+.MainMenuNull
+	{
+		width:160px;
+		height:32px;
+		display:block;
+	}
 @media(min-width:800px)
 	{
 		.MainDiv

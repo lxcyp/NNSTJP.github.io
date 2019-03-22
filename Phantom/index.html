@@ -4,12 +4,6 @@
 		<link rel="stylesheet" href="Style.css">
 		<script src="Script.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function()
-				{
-					$("#MainTextHere").load("Introduction.html");
-				});
-		</script>
 	</head>
 	<body>
 		<div>
@@ -19,14 +13,17 @@
 			<div class="Main">
 				<div class="MainDiv">
 					<div class="MainMenu"><span>
-						<a href="">ABOUT THIS GUIDE</a><br><br><br>
-						<a href="">CLASS INTRODUCTION</a><br><br>
-						<a href="">CLASS SKILL TREE</a><br><br>
-						<a href="">PHOTON ARTS</a><br><br>
-						<a href="">EQUIPMENT</a><br><br><br>
-						<a href="">GAMEPLAY VIDEOS</a><br><br>
-						<a href="">FRAME DATA</a><br><br><br>
-						<a href="">CREDITS</a>
+						<div style="width:160px"><a href=""><span class="MainMenuText">ABOUT THIS GUIDE</span></a></div>
+						<span class="MainMenuNull"></span>
+						<div style="width:160px"><a href=""><span class="MainMenuText">CLASS INTRODUCTION</span></a></div>
+						<div style="width:160px"><a href=""><span class="MainMenuText">SKILL TREE</span></a></div>
+						<div style="width:160px"><a href=""><span class="MainMenuText">PHOTON ARTS</span></a></div>
+						<span class="MainMenuNull"></span>
+						<div style="width:160px"><a href=""><span class="MainMenuText">EQUIPMENT</span></a></div>
+						<div style="width:160px"><a href=""><span class="MainMenuText">VIDEOS</span></a></div>
+						<div style="width:160px"><a href=""><span class="MainMenuText">FRAME DATA</span></a></div>
+						<span class="MainMenuNull"></span>
+						<div style="width:160px"><a href=""><span class="MainMenuText">CREDITS</span></a></div>
 					</span></div>
 					<div class="MainText" id="MainTextHere"></div>
 				</div>
