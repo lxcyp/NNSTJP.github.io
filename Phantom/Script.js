@@ -1,6 +1,6 @@
-jQuery(document).ready(function()
+$(document).ready(function()
 	{
-		jQuery("#MainTextHere").load("Introduction.html");
+		$("#MainTextHere").load("About.html");
 	});
 function MainMenuOver(Element)
 	{
