@@ -1,5 +1,6 @@
 $(document).ready(function()
 	{
+		document.getElementById("MainMenuAbout").style.boxShadow = "inset -2px 0px 0px 0px #8080E0";
 		$("#MainTextHere").load("About.html");
 	});
 function MainMenuOver(Element)
@@ -49,8 +50,8 @@ function MainMenuClick(Element)
 			{
 				$("#MainTextHere").load("Frame.html");
 			}
-		if(Element == "MainMenuAbout")
+		if(Element == "MainMenuCredits")
 			{
-				$("#MainMenuCredits").load("Credits.html");
+				$("#MainTextHere").load("Credits.html");
 			}
 	}
