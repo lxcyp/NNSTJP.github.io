@@ -21,4 +21,36 @@ function MainMenuClick(Element)
 		document.getElementById("MainMenuFrame").style.boxShadow = "";
 		document.getElementById("MainMenuCredits").style.boxShadow = "";
 		document.getElementById(Element).style.boxShadow = "inset -2px 0px 0px 0px #8080E0";
+		if(Element == "MainMenuAbout")
+			{
+				$("#MainTextHere").load("About.html");
+			}
+		if(Element == "MainMenuIntroduction")
+			{
+				$("#MainTextHere").load("Introduction.html");
+			}
+		if(Element == "MainMenuSkill")
+			{
+				$("#MainTextHere").load("Skill.html");
+			}
+		if(Element == "MainMenuPA")
+			{
+				$("#MainTextHere").load("PA.html");
+			}
+		if(Element == "MainMenuEquipment")
+			{
+				$("#MainTextHere").load("Equipment.html");
+			}
+		if(Element == "MainMenuVideo")
+			{
+				$("#MainTextHere").load("Video.html");
+			}
+		if(Element == "MainMenuFrame")
+			{
+				$("#MainTextHere").load("Frame.html");
+			}
+		if(Element == "MainMenuAbout")
+			{
+				$("#MainMenuCredits").load("Credits.html");
+			}
 	}
