@@ -14,44 +14,44 @@ function MainMenuOut(Element)
 function MainMenuClick(Element)
 	{
 		document.getElementById("MainMenuAbout").style.boxShadow = "";
-		document.getElementById("MainMenuIntroduction").style.boxShadow = "";
+		document.getElementById("MainMenuIntro").style.boxShadow = "";
 		document.getElementById("MainMenuSkill").style.boxShadow = "";
-		document.getElementById("MainMenuPA").style.boxShadow = "";
-		document.getElementById("MainMenuEquipment").style.boxShadow = "";
+		document.getElementById("MainMenuATK").style.boxShadow = "";
+		document.getElementById("MainMenuEquip").style.boxShadow = "";
 		document.getElementById("MainMenuVideo").style.boxShadow = "";
-		document.getElementById("MainMenuFrame").style.boxShadow = "";
-		document.getElementById("MainMenuCredits").style.boxShadow = "";
+		document.getElementById("MainMenuExtra").style.boxShadow = "";
+		document.getElementById("MainMenuCredit").style.boxShadow = "";
 		document.getElementById(Element).style.boxShadow = "inset -2px 0px 0px 0px #8080E0";
 		if(Element == "MainMenuAbout")
 			{
 				$("#MainTextHere").load("About.html");
 			}
-		if(Element == "MainMenuIntroduction")
+		if(Element == "MainMenuIntro")
 			{
-				$("#MainTextHere").load("Introduction.html");
+				$("#MainTextHere").load("Intro.html");
 			}
 		if(Element == "MainMenuSkill")
 			{
 				$("#MainTextHere").load("Skill.html");
 			}
-		if(Element == "MainMenuPA")
+		if(Element == "MainMenuATK")
 			{
-				$("#MainTextHere").load("PA.html");
+				$("#MainTextHere").load("ATK.html");
 			}
-		if(Element == "MainMenuEquipment")
+		if(Element == "MainMenuEquip")
 			{
-				$("#MainTextHere").load("Equipment.html");
+				$("#MainTextHere").load("Equip.html");
 			}
 		if(Element == "MainMenuVideo")
 			{
 				$("#MainTextHere").load("Video.html");
 			}
-		if(Element == "MainMenuFrame")
+		if(Element == "MainMenuExtra")
 			{
-				$("#MainTextHere").load("Frame.html");
+				$("#MainTextHere").load("Extra.html");
 			}
-		if(Element == "MainMenuCredits")
+		if(Element == "MainMenuCredit")
 			{
-				$("#MainTextHere").load("Credits.html");
+				$("#MainTextHere").load("Credit.html");
 			}
 	}
