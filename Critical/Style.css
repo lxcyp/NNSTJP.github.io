@@ -139,6 +139,10 @@ a
 	{
 		visibility:none;
 	}
+.TabCritClassPh
+	{
+		visibility:none;
+	}
 .TabCritSKyuu1ETC
 	{
 		display:none;
@@ -179,12 +183,19 @@ a
 		width:200px;
 		height:18px;
 	}
+.TabCritPP
+	{
+		float:right;
+		height:18px;
+		width:30px;
+		text-align:left;
+	}
 .TabCritNumber
 	{
 		float:left;
 		height:18px;
 		width:50px;
-		text-align:right
+		text-align:right;
 	}
 .TabAboutFont
 	{

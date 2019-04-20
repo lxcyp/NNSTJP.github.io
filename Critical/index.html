@@ -113,6 +113,15 @@
 							<div class="DivTableCellCrit"><span id="TabCritClassHrWeakAttackCriticalValueUDMG">100%</span></div>
 							<div class="DivTableCellCrit"><span id="TabCritClassHrWeakAttackCriticalValueEDMG"></span></div>
 						</div>
+						<div class="DivTableRow TabCritClassPh">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassPhCriticalStream" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option><option value="2">Lv 2</option><option value="3">Lv 3</option><option value="4">Lv 4</option><option value="5">Lv 5</option></select><br><span style="position:relative; top:1px; font-size:14px">PP</span><input class="TabCritPP" id="TabCritClassPhPP" type="number" min="100" max="300" value="100" maxLength="3" onchange="UpdateSkill('TabCritClassPhCriticalStream')"></input></div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillFiCriticalStrike.png" class="TabCritImage">CRITICAL STREAM</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassPhCriticalStreamValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassPhCriticalStreamValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassPhCriticalStreamValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassPhCriticalStreamValueEDMG"></span></div>
+						</div>
 						<div class="DivTableRow">
 							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritRingRLv" style="display:none" onchange="UpdateRing()">
 								<option value="1">+ 1</option><option value="2">+ 2</option><option value="3">+ 3</option><option value="4">+ 4</option><option value="5">+ 5</option>
