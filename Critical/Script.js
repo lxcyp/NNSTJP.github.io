@@ -442,7 +442,7 @@ function UpdateSkill(Skill)
 				if(document.getElementById(Skill).value == 3) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.024).toFixed(2) + "%"; }
 				if(document.getElementById(Skill).value == 4) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.026).toFixed(2) + "%"; }
 				if(document.getElementById(Skill).value == 5) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.03).toFixed(2) + "%"; }
-				if(parseFloat(document.getElementById(Skill + "ValueCDMG").innerHTML) > 5) { document.getElementById(Skill + "ValueCDMG").innerHTML = "103%"; }
+				if(parseFloat(document.getElementById(Skill + "ValueCDMG").innerHTML) > 5) { document.getElementById(Skill + "ValueCDMG").innerHTML = "5.00%"; }
 				document.getElementById(Skill + "ValueUDMG").innerHTML = "100%";
 			}
 		UpdateCrit();
