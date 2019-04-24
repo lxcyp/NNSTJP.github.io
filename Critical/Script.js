@@ -430,13 +430,19 @@ function UpdateSkill(Skill)
 				if(parseFloat(document.getElementById("TabCritClassPhPP").value) < parseFloat(document.getElementById("TabCritClassPhPP").min)) { document.getElementById("TabCritClassPhPP").value = document.getElementById("TabCritClassPhPP").min; }
 				if(parseFloat(document.getElementById("TabCritClassPhPP").value) > parseFloat(document.getElementById("TabCritClassPhPP").max)) { document.getElementById("TabCritClassPhPP").value = document.getElementById("TabCritClassPhPP").max; }
 				if(document.getElementById("TabCritClassPhPP").value.length > document.getElementById("TabCritClassPhPP").maxLength) { document.getElementById("TabCritClassPhPP").value = document.getElementById("TabCritClassPhPP").value.slice(0, document.getElementById("TabCritClassPhPP").maxLength); }
-				if(document.getElementById(Skill).value != 0) { document.getElementById(Skill + "ValueRate").innerHTML = ((document.getElementById("TabCritClassPhPP").value - 100 ) * 0.3).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 0) { document.getElementById(Skill + "ValueRate").innerHTML = "0%"; }
+				if(document.getElementById(Skill).value == 1) { document.getElementById(Skill + "ValueRate").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.1).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 2) { document.getElementById(Skill + "ValueRate").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.12).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 3) { document.getElementById(Skill + "ValueRate").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.14).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 4) { document.getElementById(Skill + "ValueRate").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.16).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 5) { document.getElementById(Skill + "ValueRate").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.2).toFixed(2) + "%"; }
 				if(document.getElementById(Skill).value == 0) { document.getElementById(Skill + "ValueCDMG").innerHTML = "100%"; }
-				if(document.getElementById(Skill).value == 1) { document.getElementById(Skill + "ValueCDMG").innerHTML = "101%"; }
-				if(document.getElementById(Skill).value == 2) { document.getElementById(Skill + "ValueCDMG").innerHTML = "102%"; }
-				if(document.getElementById(Skill).value == 3) { document.getElementById(Skill + "ValueCDMG").innerHTML = "103%"; }
-				if(document.getElementById(Skill).value == 4) { document.getElementById(Skill + "ValueCDMG").innerHTML = "104%"; }
-				if(document.getElementById(Skill).value == 5) { document.getElementById(Skill + "ValueCDMG").innerHTML = "105%"; }
+				if(document.getElementById(Skill).value == 1) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.02).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 2) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.022).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 3) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.024).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 4) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.026).toFixed(2) + "%"; }
+				if(document.getElementById(Skill).value == 5) { document.getElementById(Skill + "ValueCDMG").innerHTML = (document.getElementById("TabCritClassPhPP").value * 0.03).toFixed(2) + "%"; }
+				if(parseFloat(document.getElementById(Skill + "ValueCDMG").innerHTML) > 3.00) { document.getElementById(Skill + "ValueCDMG").innerHTML = "103%"; }
 				document.getElementById(Skill + "ValueUDMG").innerHTML = "100%";
 			}
 		UpdateCrit();
