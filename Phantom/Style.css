@@ -60,6 +60,10 @@ a
 		transition:0.5s;
 		overflow-x:hidden;
 	}
+.MainIMG
+	{
+		width:64px;
+	}
 .MainMenu
 	{
 		z-index:1;
