@@ -54,14 +54,11 @@ a
 .MainText
 	{
 		position:relative;
-		width:100%;
 		font-size:16px;
-		text-align:middle;
 		white-space:normal;
 		color:#FFFFFF;
 		transition:0.5s;
-		background-color:#FF80FF;
-		overflow:auto;
+		overflow-x:hidden;
 	}
 .MainMenu
 	{
