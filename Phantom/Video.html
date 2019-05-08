@@ -1,25 +1,3 @@
-<style>
-	.Collapsible
-		{
-			width:100%;
-			border:none;
-			padding:8px;
-			text-align:left;
-			cursor:pointer;
-			outline:none;
-			transition:0.5s;
-		}
-	.CollapsibleActive
-		{
-			background-color:#808080;
-		}
-	.CollapsibleContent
-		{
-			max-height:0;
-			overflow:hidden;
-			transition:max-height 0.25s ease-out;
-		}
-</style>
 <span>
 	<span style="font-size:32px">VIDEOS</span>
 	<br>	<br><br><br><br>
@@ -60,13 +38,12 @@
 	</div>
 </span>
 <script>
-	var Collapsible = document.getElementsByClassName("Collapsible");
-	var Count;
-	for(Count = 0; Count < Collapsible.length; Count++)
+	var VideoCollapsible = document.getElementsByClassName("VideoCollapsible");
+	for(var Count = 0; Count < VideoCollapsible.length; Count++)
 		{
-			Collapsible[Count].addEventListener("click", function()
+			VideoCollapsible[Count].addEventListener("click", function()
 				{
-					this.classList.toggle("CollapsibleActive");
+					this.classList.toggle("VideoCollapsibleActive");
 					var Content = this.nextElementSibling;
 					if(Content.style.maxHeight)
 						{
