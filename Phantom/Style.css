@@ -91,28 +91,6 @@ a
 		height:32px;
 		display:block;
 	}
-.VideoCollapsible
-	{
-		width:100%;
-		border:none;
-		padding:8px;
-		background-color:transparent;
-		text-align:left;
-		font-family:Ubuntu;
-		cursor:pointer;
-		outline:none;
-		transition:0.5s;
-	}
-.VideoCollapsibleActive
-	{
-		background-color:#8080E0;
-	}
-.VideoCollapsibleContent
-	{
-		max-height:0;
-		overflow:hidden;
-		transition:max-height 0.25s ease-out;
-	}
 @media(min-width:800px)
 	{
 		.MainDiv
