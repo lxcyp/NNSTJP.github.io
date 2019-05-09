@@ -2,7 +2,7 @@
 	<head>
 		<link rel="stylesheet" href="Style.css">
 		<style>
-			.EquipCollapsible, .EquipWeaponCollapsible
+			.EquipCollapsible, .EquipWeaponCollapsible, .EquipUnitCollapsible, .EquipRingCollapsible
 				{
 					width:100%;
 					border:none;
@@ -15,7 +15,7 @@
 					outline:none;
 					transition:0.5s;
 				}
-			.EquipCollapsibleActive, .EquipCollapsible:hover, .EquipWeaponCollapsibleActive, .EquipWeaponCollapsible:hover
+			.EquipCollapsibleActive, .EquipCollapsible:hover, .EquipWeaponCollapsibleActive, .EquipWeaponCollapsible:hover, .EquipUnitCollapsibleActive, .EquipUnitCollapsible:hover, .EquipRingCollapsibleActive, .EquipRingCollapsible:hover
 				{
 					background-color:#8080E0;
 				}
@@ -33,9 +33,11 @@
 				{
 					if(!document.getElementById(Element).classList.contains("EquipCollapsibleActive"))
 						{
-							document.getElementById("EquipMag").classList.toggle("EquipCollapsibleActive", false);
-							document.getElementById("EquipUnit").classList.toggle("EquipCollapsibleActive", false);
 							document.getElementById("EquipWeapon").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById("EquipUnit").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById("EquipSenzai").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById("EquipRing").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById("EquipMag").classList.toggle("EquipCollapsibleActive", false);
 							document.getElementById(Element).classList.toggle("EquipCollapsibleActive");
 						}
 					else
@@ -84,6 +86,61 @@
 							document.getElementById("EquipWeapon").nextElementSibling.style.maxHeight = "1080";
 						}
 				}
+			function EquipUnitCollapsibleToggle(Element)
+				{
+					if(!document.getElementById(Element).classList.contains("EquipUnitCollapsibleActive"))
+						{
+							document.getElementById("EquipUnitRear").classList.toggle("EquipUnitCollapsibleActive", false);
+							document.getElementById("EquipUnitArm").classList.toggle("EquipUnitCollapsibleActive", false);
+							document.getElementById("EquipUnitLeg").classList.toggle("EquipUnitCollapsibleActive", false);
+							document.getElementById(Element).classList.toggle("EquipUnitCollapsibleActive");
+						}
+					else
+						{
+							document.getElementById(Element).classList.toggle("EquipUnitCollapsibleActive");
+						}
+					var EquipUnitCollapsibles = document.getElementsByClassName("EquipUnitCollapsible");
+					for(var Count = 0; Count < EquipUnitCollapsibles.length; Count ++)
+						{
+							var Content = EquipUnitCollapsibles[Count].nextElementSibling;
+							if(EquipUnitCollapsibles[Count].classList.contains("EquipUnitCollapsibleActive"))
+								{
+									Content.style.maxHeight = Content.scrollHeight + "px";
+								}
+							else
+								{
+									Content.style.maxHeight = null;
+								}
+							document.getElementById("EquipUnit").nextElementSibling.style.maxHeight = "1080";
+						}
+				}
+			function EquipRingCollapsibleToggle(Element)
+				{
+					if(!document.getElementById(Element).classList.contains("EquipRingCollapsibleActive"))
+						{
+							document.getElementById("EquipRingL").classList.toggle("EquipRingCollapsibleActive", false);
+							document.getElementById("EquipRingR").classList.toggle("EquipRingCollapsibleActive", false);
+							document.getElementById(Element).classList.toggle("EquipRingCollapsibleActive");
+						}
+					else
+						{
+							document.getElementById(Element).classList.toggle("EquipRingCollapsibleActive");
+						}
+					var EquipRingCollapsibles = document.getElementsByClassName("EquipRingCollapsible");
+					for(var Count = 0; Count < EquipRingCollapsibles.length; Count ++)
+						{
+							var Content = EquipRingCollapsibles[Count].nextElementSibling;
+							if(EquipRingCollapsibles[Count].classList.contains("EquipRingCollapsibleActive"))
+								{
+									Content.style.maxHeight = Content.scrollHeight + "px";
+								}
+							else
+								{
+									Content.style.maxHeight = null;
+								}
+							document.getElementById("EquipRing").nextElementSibling.style.maxHeight = "1080";
+						}
+				}
 		</script>
 	</head>
 	<body>
@@ -92,18 +149,6 @@
 			<br>	<br>
 			This Section is a Work In Progress. Please check back later.
 			<br>	<br><br>
-			<div class="EquipCollapsible" id="EquipMag" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">MAG</span></div>
-			<div class="EquipCollapsibleContent">
-				<br>
-				SOON™
-				<br>	<br>
-			</div>
-			<div class="EquipCollapsible" id="EquipUnit" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">UNITS</span></div>
-			<div class="EquipCollapsibleContent">
-				<br>
-				SOON™
-				<br>	<br>
-			</div>
 			<div class="EquipCollapsible" id="EquipWeapon" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">WEAPONS</span></div>
 			<div class="EquipCollapsibleContent">
 				<br>
@@ -129,6 +174,58 @@
 						SOON™
 						<br>	<br>
 					</div>
+				<br>	<br>
+			</div>
+			<div class="EquipCollapsible" id="EquipUnit" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">UNITS</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+					<div class="EquipUnitCollapsible" id="EquipUnitRear" onclick="EquipUnitCollapsibleToggle(this.id)"><span style="font-size:24px">REAR</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+					<div class="EquipUnitCollapsible" id="EquipUnitArm" onclick="EquipUnitCollapsibleToggle(this.id)"><span style="font-size:24px">ARM</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+					<div class="EquipUnitCollapsible" id="EquipUnitLeg" onclick="EquipUnitCollapsibleToggle(this.id)"><span style="font-size:24px">LEG</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+				<br>	<br>
+			</div>
+			<div class="EquipCollapsible" id="EquipSenzai" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">SPECIAL ABILITIES</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+				SOON™
+				<br>	<br>
+			</div>
+			<div class="EquipCollapsible" id="EquipRing" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">RINGS</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+					<div class="EquipRingCollapsible" id="EquipRingL" onclick="EquipRingCollapsibleToggle(this.id)"><span style="font-size:24px">LEFT</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+					<div class="EquipRingCollapsible" id="EquipRingR" onclick="EquipRingCollapsibleToggle(this.id)"><span style="font-size:24px">RIGHT</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+				<br>	<br>
+			</div>
+			<div class="EquipCollapsible" id="EquipMag" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">MAG</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+				SOON™
 				<br>	<br>
 			</div>
 		</div>
