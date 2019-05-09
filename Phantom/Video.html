@@ -21,6 +21,8 @@
 				}
 			.VideoCollapsibleContent
 				{
+					position:relative;
+					left:16px;
 					max-height:0;
 					overflow:hidden;
 					transition:max-height 0.25s ease-out;
@@ -60,7 +62,7 @@
 	<body>
 		<div>
 			<span style="font-size:32px">VIDEOS</span>
-			<br>	<br><br><br><br>
+			<br>	<br>
 			<div class="VideoCollapsible" id="VideoGeneral" onclick="VideoCollapsibleToggle(this.id)"><span style="font-size:24px">GENERAL GAMEPLAY</span></div>
 			<div class="VideoCollapsibleContent">
 				<br>
@@ -68,7 +70,7 @@
 				<br>	<br>
 			</div>
 			<div class="VideoCollapsible" id="VideoKatana" onclick="VideoCollapsibleToggle(this.id)"><span style="font-size:24px">KATANA GAMEPLAY</span></div>
-			<div class="VideoCollapsibleContent">
+			<div class="VideoCollapsibleContent"">
 				<br>
 				「 T: DESTROYERS OF LIGHT 」 11:11 BY JUNE
 				<br><iframe width="480" height="270" src="https://www.youtube.com/embed/XJDLhdJ8ER4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

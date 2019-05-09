@@ -2,8 +2,88 @@
 	<head>
 		<link rel="stylesheet" href="Style.css">
 		<style>
+			.EquipCollapsible, .EquipWeaponCollapsible
+				{
+					width:100%;
+					border:none;
+					padding:8px;
+					background-color:transparent;
+					text-align:left;
+					font-family:Ubuntu;
+					color:#FFFFFF;
+					cursor:pointer;
+					outline:none;
+					transition:0.5s;
+				}
+			.EquipCollapsibleActive, .EquipCollapsible:hover, .EquipWeaponCollapsibleActive, .EquipWeaponCollapsible:hover
+				{
+					background-color:#8080E0;
+				}
+			.EquipCollapsibleContent
+				{
+					position:relative;
+					left:16px;
+					max-height:0;
+					overflow:hidden;
+					transition:max-height 0.25s ease-out;
+				}
 		</style>
 		<script>
+			function EquipCollapsibleToggle(Element)
+				{
+					if(!document.getElementById(Element).classList.contains("EquipCollapsibleActive"))
+						{
+							document.getElementById("EquipMag").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById("EquipUnit").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById("EquipWeapon").classList.toggle("EquipCollapsibleActive", false);
+							document.getElementById(Element).classList.toggle("EquipCollapsibleActive");
+						}
+					else
+						{
+							document.getElementById(Element).classList.toggle("EquipCollapsibleActive");
+						}
+					var EquipCollapsibles = document.getElementsByClassName("EquipCollapsible");
+					for(var Count = 0; Count < EquipCollapsibles.length; Count ++)
+						{
+							var Content = EquipCollapsibles[Count].nextElementSibling;
+							if(EquipCollapsibles[Count].classList.contains("EquipCollapsibleActive"))
+								{
+									Content.style.maxHeight = Content.scrollHeight + "px";
+								}
+							else
+								{
+									Content.style.maxHeight = null;
+								}
+						}
+				}
+			function EquipWeaponCollapsibleToggle(Element)
+				{
+					if(!document.getElementById(Element).classList.contains("EquipWeaponCollapsibleActive"))
+						{
+							document.getElementById("EquipWeaponKatana").classList.toggle("EquipWeaponCollapsibleActive", false);
+							document.getElementById("EquipWeaponAssaultRifle").classList.toggle("EquipWeaponCollapsibleActive", false);
+							document.getElementById("EquipWeaponRod").classList.toggle("EquipWeaponCollapsibleActive", false);
+							document.getElementById(Element).classList.toggle("EquipWeaponCollapsibleActive");
+						}
+					else
+						{
+							document.getElementById(Element).classList.toggle("EquipWeaponCollapsibleActive");
+						}
+					var EquipWeaponCollapsibles = document.getElementsByClassName("EquipWeaponCollapsible");
+					for(var Count = 0; Count < EquipWeaponCollapsibles.length; Count ++)
+						{
+							var Content = EquipWeaponCollapsibles[Count].nextElementSibling;
+							if(EquipWeaponCollapsibles[Count].classList.contains("EquipWeaponCollapsibleActive"))
+								{
+									Content.style.maxHeight = Content.scrollHeight + "px";
+								}
+							else
+								{
+									Content.style.maxHeight = null;
+								}
+							document.getElementById("EquipWeapon").nextElementSibling.style.maxHeight = "1080";
+						}
+				}
 		</script>
 	</head>
 	<body>
@@ -12,20 +92,45 @@
 			<br>	<br>
 			This Section is a Work In Progress. Please check back later.
 			<br>	<br><br>
-			<span style="font-size:24px">MAG</span>
-			<br>	<br>
-			SOON™
-			<br>	<br><br><br><br>
-			<span style="font-size:24px">WEAPONS</span>
-			<br>	<br>
-			<span style="font-size:24px">KATANA</span>
-			<br>	<br>
-			<img src="PNG/Weapon/UIItemAtlasVarua.png" class="MainIMG">Atlas Varua Ex
-			<br><img src="PNG/Weapon/UIItemAtlasVaruaEx.png" class="MainIMG">Atlas Varua
-			<br><img src="PNG/Weapon/UIItemLightstreamFloraxion.png" class="MainIMG">Lightstream Floraxion
-			<br><img src="PNG/Weapon/UIItemCelestialFloraxion.png" class="MainIMG">Celestial Floraxion
-			<br><img src="PNG/Weapon/UIItemCeresDasaroZara.png" class="MainIMG">Ceres Dasaro Zara
-			<br><img src="PNG/Weapon/UIItemAustereGalland.png" class="MainIMG">Austere Galland NT
+			<div class="EquipCollapsible" id="EquipMag" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">MAG</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+				SOON™
+				<br>	<br>
+			</div>
+			<div class="EquipCollapsible" id="EquipUnit" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">UNITS</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+				SOON™
+				<br>	<br>
+			</div>
+			<div class="EquipCollapsible" id="EquipWeapon" onclick="EquipCollapsibleToggle(this.id)"><span style="font-size:24px">WEAPONS</span></div>
+			<div class="EquipCollapsibleContent">
+				<br>
+					<div class="EquipWeaponCollapsible" id="EquipWeaponKatana" onclick="EquipWeaponCollapsibleToggle(this.id)"><span style="font-size:24px">KATANA</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						<img src="PNG/Weapon/UIItemLightstreamFloraxion.png" class="MainIMG">Lightstream Floraxion
+						<br><img src="PNG/Weapon/UIItemAtlasVarua.png" class="MainIMG">Atlas Varua Ex
+						<br><img src="PNG/Weapon/UIItemCelestialFloraxion.png" class="MainIMG">Celestial Floraxion
+						<br><img src="PNG/Weapon/UIItemAtlasVaruaEx.png" class="MainIMG">Atlas Varua
+						<br><img src="PNG/Weapon/UIItemCeresDasaroZara.png" class="MainIMG">Ceres Dasaro Zara
+						<br>	<br>
+					</div>
+					<div class="EquipWeaponCollapsible" id="EquipWeaponAssaultRifle" onclick="EquipWeaponCollapsibleToggle(this.id)"><span style="font-size:24px">ASSAULT RIFLE</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+					<div class="EquipWeaponCollapsible" id="EquipWeaponRod" onclick="EquipWeaponCollapsibleToggle(this.id)"><span style="font-size:24px">ROD</span></div>
+					<div class="EquipCollapsibleContent">
+						<br>
+						SOON™
+						<br>	<br>
+					</div>
+				<br>	<br>
+			</div>
 		</div>
 	</body>
 </html>
