@@ -3,14 +3,6 @@ $(document).ready(function()
 		document.getElementById("MainMenuAbout").style.boxShadow = "inset -2px 0px 0px 0px #8080E0";
 		$("#MainTextHere").load("About.html");
 	});
-function MainMenuOver(Element)
-	{
-		document.getElementById(Element).style.background = "#8080E0";
-	}
-function MainMenuOut(Element)
-	{
-		document.getElementById(Element).style.background = "";
-	}
 function MainMenuClick(Element)
 	{
 		document.getElementById("MainMenuAbout").style.boxShadow = "";

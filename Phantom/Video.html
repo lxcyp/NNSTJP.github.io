@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="Style.css">
 		<style>
 			.VideoCollapsible
 				{
@@ -25,18 +26,48 @@
 					transition:max-height 0.25s ease-out;
 				}
 		</style>
+		<script>
+			function VideoCollapsibleToggle(Element)
+				{
+					if(!document.getElementById(Element).classList.contains("VideoCollapsibleActive"))
+						{
+							document.getElementById("VideoGeneral").classList.toggle("VideoCollapsibleActive", false);
+							document.getElementById("VideoKatana").classList.toggle("VideoCollapsibleActive", false);
+							document.getElementById("VideoAssaultRifle").classList.toggle("VideoCollapsibleActive", false);
+							document.getElementById("VideoRod").classList.toggle("VideoCollapsibleActive", false);
+							document.getElementById(Element).classList.toggle("VideoCollapsibleActive");
+						}
+					else
+						{
+							document.getElementById(Element).classList.toggle("VideoCollapsibleActive");
+						}
+					var VideoCollapsibles = document.getElementsByClassName("VideoCollapsible");
+					for(var Count = 0; Count < VideoCollapsibles.length; Count ++)
+						{
+							var Content = VideoCollapsibles[Count].nextElementSibling;
+							if(VideoCollapsibles[Count].classList.contains("VideoCollapsibleActive"))
+								{
+									Content.style.maxHeight = Content.scrollHeight + "px";
+								}
+							else
+								{
+									Content.style.maxHeight = null;
+								}
+						}
+				}
+		</script>
 	</head>
 	<body>
-		<div>
+		<div style="background-color:#404040">
 			<span style="font-size:32px">VIDEOS</span>
 			<br>	<br><br><br><br>
-			<button class="VideoCollapsible"><span style="font-size:24px">GENERAL GAMEPLAY</span></button>
+			<div class="VideoCollapsible" id="VideoGeneral" onclick="VideoCollapsibleToggle(this.id)"><span style="font-size:24px">GENERAL GAMEPLAY</span></div>
 			<div class="VideoCollapsibleContent">
 				<br>
 				SOON™
 				<br>	<br>
 			</div>
-			<button class="VideoCollapsible"><span style="font-size:24px">KATANA GAMEPLAY</span></button>
+			<div class="VideoCollapsible" id="VideoKatana" onclick="VideoCollapsibleToggle(this.id)"><span style="font-size:24px">KATANA GAMEPLAY</span></div>
 			<div class="VideoCollapsibleContent">
 				<br>
 				「 T: DESTROYERS OF LIGHT 」 11:11 BY JUNE
@@ -49,13 +80,13 @@
 				<br><iframe width="480" height="270" src="https://www.youtube.com/embed/iEv7AQpoCBQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br>	<br>
 			</div>
-			<button class="VideoCollapsible"><span style="font-size:24px">ASSAULT RIFLE GAMEPLAY</span></button>
+			<div class="VideoCollapsible" id="VideoAssaultRifle" onclick="VideoCollapsibleToggle(this.id)"><span style="font-size:24px">ASSAULT RIFLE GAMEPLAY</span></div>
 			<div class="VideoCollapsibleContent">
 				<br>
 				SOON™
 				<br>	<br>
 			</div>
-			<button class="VideoCollapsible"><span style="font-size:24px">ROD GAMEPLAY</span></button>
+			<div class="VideoCollapsible" id="VideoRod" onclick="VideoCollapsibleToggle(this.id)"><span style="font-size:24px">ROD GAMEPLAY</span></div>
 			<div class="VideoCollapsibleContent">
 				<br>
 				「 T: ENDLESS DARKNESS 」 4:11 BY PSIGARDE
@@ -67,23 +98,4 @@
 			</div>
 		</div>
 	</body>
-	<script>
-		var VideoCollapsible = document.getElementsByClassName("VideoCollapsible");
-		for(var Count = 0; Count < VideoCollapsible.length; Count++)
-			{
-				VideoCollapsible[Count].addEventListener("click", function()
-					{
-						this.classList.toggle("VideoCollapsibleActive");
-						var Content = this.nextElementSibling;
-						if(Content.style.maxHeight)
-							{
-								Content.style.maxHeight = null;
-							}
-						else
-							{
-								Content.style.maxHeight = Content.scrollHeight + "px";
-							}
-					});
-			}
-	</script>
 </html>

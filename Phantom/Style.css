@@ -83,7 +83,12 @@ a
 		height:32px;
 		display:block;
 		line-height:32px;
+		cursor:pointer;
 		transition:0.25s;
+	}
+.MainMenuText:hover
+	{
+		background-color:#8080E0;
 	}
 .MainMenuNull
 	{
