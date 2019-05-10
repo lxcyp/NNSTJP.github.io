@@ -2,6 +2,15 @@
 	<head>
 		<link rel="stylesheet" href="Style.css">
 		<style>
+			.EquipIMG
+				{
+					width:64px;
+				}
+			.EquipIMGUI
+				{
+					position:relative;
+					top:3px;
+				}
 			.EquipCollapsible, .EquipWeaponCollapsible, .EquipUnitCollapsible, .EquipRingCollapsible
 				{
 					width:100%;
@@ -143,7 +152,7 @@
 				}
 		</script>
 	</head>
-	<body>
+	<body style="background-color:#404040">
 		<div>
 			<span style="font-size:32px">RECOMMENDED EQUIPMENT</span>
 			<br>	<br>
@@ -154,12 +163,57 @@
 				<div class="EquipWeaponCollapsible" id="EquipWeaponKatana" onclick="EquipWeaponCollapsibleToggle(this.id)"><img src="PNG/UI/UIWeaponKatana.png"><span style="font-size:24px"> KATANA</span></div>
 				<div class="EquipCollapsibleContent">
 					<br>
-					<img src="PNG/Weapon/UIItemLightstreamFloraxion.png" class="MainIMG">Lightstream Floraxion
-					<br><img src="PNG/Weapon/UIItemAtlasVarua.png" class="MainIMG">Atlas Varua Ex
-					<br><img src="PNG/Weapon/UIItemCelestialFloraxion.png" class="MainIMG">Celestial Floraxion
-					<br><img src="PNG/Weapon/UIItemAtlasVaruaEx.png" class="MainIMG">Atlas Varua
-					<br><img src="PNG/Weapon/UIItemCeresDasaroZara.png" class="MainIMG">Ceres Dasaro Zara
-					<br>	<br>
+					<div class="DivTable">
+						<div class="DivTableRow">
+							<div class="DivTableCell"><img src="PNG/Weapon/UIItemLightstreamFloraxion.png" class="EquipIMG"></div>
+							<div class="DivTableCell">
+								<img src="PNG/UI/UIStar15.png" class="EquipIMGUI">Lightstream Floraxion (<img src="PNG/UI/UIStatSATK.png" class="EquipIMGUI">2145)
+								<br><img src="PNG/UI/UIItemSClassAbility1.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility2.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility3.png" class="EquipIMGUI">
+								<br><img src="PNG/UI/UIItemPotentialAbility.png" class="EquipIMGUI">
+							</div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell"><img src="PNG/Weapon/UIItemAtlasVarua.png" class="EquipIMG"></div>
+							<div class="DivTableCell">
+								<img src="PNG/UI/UIStar15.png" class="EquipIMGUI">Atlas Varua Ex (<img src="PNG/UI/UIStatSATK.png" class="EquipIMGUI">2069)
+								<br><img src="PNG/UI/UIItemSClassAbility1.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility2.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility3.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility4.png" class="EquipIMGUI">
+								<br><img src="PNG/UI/UIItemPotentialAbility.png" class="EquipIMGUI">
+							</div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell"><img src="PNG/Weapon/UIItemAustereGalland.png" class="EquipIMG"></div>
+							<div class="DivTableCell">
+								<img src="PNG/UI/UIStar15.png" class="EquipIMGUI">Austere Galland NT (<img src="PNG/UI/UIStatSATK.png" class="EquipIMGUI">1971)
+								<br><img src="PNG/UI/UIItemSClassAbility1.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility2.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility3.png" class="EquipIMGUI">
+								<br><img src="PNG/UI/UIItemPotentialAbility.png" class="EquipIMGUI">
+							</div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell"><img src="PNG/Weapon/UIItemCelestialFloraxion.png" class="EquipIMG"></div>
+							<div class="DivTableCell">
+								<img src="PNG/UI/UIStar14.png" class="EquipIMGUI">Celestial Floraxion (<img src="PNG/UI/UIStatSATK.png" class="EquipIMGUI">1794)
+								<br><img src="PNG/UI/UIItemSClassAbility1.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility2.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility3.png" class="EquipIMGUI">
+								<br><img src="PNG/UI/UIItemPotentialAbility.png" class="EquipIMGUI">
+							</div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell"><img src="PNG/Weapon/UIItemAtlasVaruaEx.png" class="EquipIMG"></div>
+							<div class="DivTableCell">
+								<img src="PNG/UI/UIStar14.png" class="EquipIMGUI">Atlas Varua (<img src="PNG/UI/UIStatSATK.png" class="EquipIMGUI">1659)
+								<br><img src="PNG/UI/UIItemSClassAbility1.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility2.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility3.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility4.png" class="EquipIMGUI">
+								<br><img src="PNG/UI/UIItemPotentialAbility.png" class="EquipIMGUI">
+							</div>
+						</div>
+						<div class="DivTableRow">
+							<div class="DivTableCell"><img src="PNG/Weapon/UIItemCeresDasaroZara.png" class="EquipIMG"></div>
+							<div class="DivTableCell">
+								<img src="PNG/UI/UIStar14.png" class="EquipIMGUI">Ceres Dasaro Zara (<img src="PNG/UI/UIStatSATK.png" class="EquipIMGUI">1539)
+								<br><img src="PNG/UI/UIItemSClassAbility1.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility2.png" class="EquipIMGUI"><img src="PNG/UI/UIItemSClassAbility3.png" class="EquipIMGUI">
+								<br><img src="PNG/UI/UIItemPotentialAbility.png" class="EquipIMGUI">
+							</div>
+						</div>
+					</div>
+					<br>
 				</div>
 				<div class="EquipWeaponCollapsible" id="EquipWeaponAssaultRifle" onclick="EquipWeaponCollapsibleToggle(this.id)"><img src="PNG/UI/UIWeaponAssaultRifle.png"><span style="font-size:24px"> ASSAULT RIFLE</span></div>
 				<div class="EquipCollapsibleContent">

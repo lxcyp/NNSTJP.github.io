@@ -61,10 +61,6 @@ a
 		overflow-x:hidden;
 		transition:0.5s;
 	}
-.MainIMG
-	{
-		width:64px;
-	}
 .MainMenu
 	{
 		z-index:1;
@@ -95,6 +91,21 @@ a
 		width:160px;
 		height:32px;
 		display:block;
+	}
+.DivTable
+	{
+		display:table;
+		text-align:left;
+	}
+.DivTableRow
+	{
+		display:table-row;
+	}
+.DivTableCell
+	{
+		display:table-cell;
+		padding:1px;
+		vertical-align:top;
 	}
 @media(min-width:800px)
 	{
