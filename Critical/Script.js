@@ -586,6 +586,12 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "104%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
+				if(document.getElementById(SKyuu).value == "CDMG2")
+					{
+						document.getElementById(SKyuu + "ValueRate").innerHTML = "0%";
+						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "105%";
+						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
+					}
 				if(document.getElementById(SKyuu).value == "CRate1")
 					{
 						document.getElementById("TabCritSKyuu1").getElementsByTagName("option")[0].disabled = true;
@@ -606,10 +612,25 @@ function UpdateSKyuu(SKyuu)
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
+				if(document.getElementById(SKyuu).value == "Rate2")
+					{
+						document.getElementById(SKyuu + "ValueRate").innerHTML = "50%";
+						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
+						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
+					}
 				if(document.getElementById(SKyuu).value == "Both1")
 					{
 						document.getElementById(SKyuu + "ValueRate").innerHTML = "-50%";
 						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "106%";
+						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
+					}
+			}
+		if(SKyuu.includes("6"))
+			{
+				if(document.getElementById(SKyuu).value == "Rate1")
+					{
+						document.getElementById(SKyuu + "ValueRate").innerHTML = "15%";
+						document.getElementById(SKyuu + "ValueCDMG").innerHTML = "100%";
 						document.getElementById(SKyuu + "ValueUDMG").innerHTML = "100%";
 					}
 			}
@@ -702,10 +723,12 @@ function UpdateCrit()
 		CritRate += parseInt(document.getElementById("TabCritSKyuu2ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu3ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu4ValueRate").innerHTML);
+		CritRate += parseInt(document.getElementById("TabCritSKyuu6ValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu1ETCValueRate").value);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu2ETCValueRate").value);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu3ETCValueRate").value);
 		CritRate += parseInt(document.getElementById("TabCritSKyuu4ETCValueRate").value);
+		CritRate += parseInt(document.getElementById("TabCritSKyuu6ETCValueRate").value);
 		CritRate += parseFloat(document.getElementById("TabCritSenzaiValueRate").value);
 		CritRate += parseInt(document.getElementById("TabCritETCTechterValueRate").innerHTML);
 		CritRate += parseInt(document.getElementById("TabCritETCBouncerValueRate").innerHTML);
@@ -728,10 +751,12 @@ function UpdateCrit()
 		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu2ValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu3ValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu4ValueCDMG").innerHTML) / 100;
+		CritCDMG *= parseInt(document.getElementById("TabCritSKyuu6ValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseFloat(document.getElementById("TabCritSKyuu1ETCValueCDMG").value) / 100;
 		CritCDMG *= parseFloat(document.getElementById("TabCritSKyuu2ETCValueCDMG").value) / 100;
 		CritCDMG *= parseFloat(document.getElementById("TabCritSKyuu3ETCValueCDMG").value) / 100;
 		CritCDMG *= parseFloat(document.getElementById("TabCritSKyuu4ETCValueCDMG").value) / 100;
+		CritCDMG *= parseFloat(document.getElementById("TabCritSKyuu6ETCValueCDMG").value) / 100;
 		CritCDMG *= parseFloat(document.getElementById("TabCritSenzaiValueCDMG").value) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritETCTechterValueCDMG").innerHTML) / 100;
 		CritCDMG *= parseInt(document.getElementById("TabCritETCBouncerValueCDMG").innerHTML) / 100;
@@ -752,10 +777,12 @@ function UpdateCrit()
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu3ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu4ValueUDMG").innerHTML) / 100;
+		CritUDMG *= parseInt(document.getElementById("TabCritSKyuu6ValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseFloat(document.getElementById("TabCritSKyuu1ETCValueUDMG").value) / 100;
 		CritUDMG *= parseFloat(document.getElementById("TabCritSKyuu2ETCValueUDMG").value) / 100;
 		CritUDMG *= parseFloat(document.getElementById("TabCritSKyuu3ETCValueUDMG").value) / 100;
 		CritUDMG *= parseFloat(document.getElementById("TabCritSKyuu4ETCValueUDMG").value) / 100;
+		CritUDMG *= parseFloat(document.getElementById("TabCritSKyuu6ETCValueUDMG").value) / 100;
 		CritUDMG *= parseFloat(document.getElementById("TabCritSenzaiValueUDMG").value) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritETCTechterValueUDMG").innerHTML) / 100;
 		CritUDMG *= parseInt(document.getElementById("TabCritETCBouncerValueUDMG").innerHTML) / 100;
@@ -778,10 +805,12 @@ function UpdateCrit()
 		document.getElementById("TabCritSKyuu2ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu2ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu2ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritSKyuu3ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu3ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu3ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritSKyuu4ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu4ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu4ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
+		document.getElementById("TabCritSKyuu6ValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritSKyuu6ValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritSKyuu6ValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		if(document.getElementById("TabCritSKyuu1").value == "ETC") { document.getElementById("TabCritSKyuu1ValueEDMG").innerHTML = (((parseFloat(document.getElementById("TabCritSKyuu1ETCValueCDMG").value) - 100) * CritRate / 100 + 100) * parseFloat(document.getElementById("TabCritSKyuu1ETCValueUDMG").value) / 100).toFixed(2) + "%"; }
 		if(document.getElementById("TabCritSKyuu2").value == "ETC") { document.getElementById("TabCritSKyuu2ValueEDMG").innerHTML = (((parseFloat(document.getElementById("TabCritSKyuu2ETCValueCDMG").value) - 100) * CritRate / 100 + 100) * parseFloat(document.getElementById("TabCritSKyuu2ETCValueUDMG").value) / 100).toFixed(2) + "%"; }
 		if(document.getElementById("TabCritSKyuu3").value == "ETC") { document.getElementById("TabCritSKyuu3ValueEDMG").innerHTML = (((parseFloat(document.getElementById("TabCritSKyuu3ETCValueCDMG").value) - 100) * CritRate / 100 + 100) * parseFloat(document.getElementById("TabCritSKyuu3ETCValueUDMG").value) / 100).toFixed(2) + "%"; }
 		if(document.getElementById("TabCritSKyuu4").value == "ETC") { document.getElementById("TabCritSKyuu4ValueEDMG").innerHTML = (((parseFloat(document.getElementById("TabCritSKyuu4ETCValueCDMG").value) - 100) * CritRate / 100 + 100) * parseFloat(document.getElementById("TabCritSKyuu4ETCValueUDMG").value) / 100).toFixed(2) + "%"; }
+		if(document.getElementById("TabCritSKyuu6").value == "ETC") { document.getElementById("TabCritSKyuu6ValueEDMG").innerHTML = (((parseFloat(document.getElementById("TabCritSKyuu6ETCValueCDMG").value) - 100) * CritRate / 100 + 100) * parseFloat(document.getElementById("TabCritSKyuu6ETCValueUDMG").value) / 100).toFixed(2) + "%"; }
 		document.getElementById("TabCritSenzaiValueEDMG").innerHTML = (((parseFloat(document.getElementById("TabCritSenzaiValueCDMG").value) - 100) * CritRate / 100 + 100) * parseFloat(document.getElementById("TabCritSenzaiValueUDMG").value) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritETCTechterValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritETCTechterValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritETCTechterValueUDMG").innerHTML) / 100).toFixed(2) + "%";
 		document.getElementById("TabCritETCBouncerValueEDMG").innerHTML = (((parseInt(document.getElementById("TabCritETCBouncerValueCDMG").innerHTML) - 100) * CritRate / 100 + 100) * parseInt(document.getElementById("TabCritETCBouncerValueUDMG").innerHTML) / 100).toFixed(2) + "%";
@@ -801,6 +830,7 @@ function UpdateCrit()
 		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu2ValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu3ValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu4ValueEDMG").innerHTML) / 100;
+		CritEDMG *= parseFloat(document.getElementById("TabCritSKyuu6ValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritSenzaiValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritETCTechterValueEDMG").innerHTML) / 100;
 		CritEDMG *= parseFloat(document.getElementById("TabCritETCBouncerValueEDMG").innerHTML) / 100;
@@ -839,6 +869,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritSKyuu3ValueRate").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu4ValueRate").innerHTML) == 0) { document.getElementById("TabCritSKyuu4ValueRate").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu4ValueRate").style.display = "inline"; }
+		if(parseInt(document.getElementById("TabCritSKyuu6ValueRate").innerHTML) == 0) { document.getElementById("TabCritSKyuu6ValueRate").style.display = "none"; }
+		else { document.getElementById("TabCritSKyuu6ValueRate").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritETCTechterValueRate").innerHTML) == 0) { document.getElementById("TabCritETCTechterValueRate").style.display = "none"; }
 		else { document.getElementById("TabCritETCTechterValueRate").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritETCBouncerValueRate").innerHTML) == 0) { document.getElementById("TabCritETCBouncerValueRate").style.display = "none"; }
@@ -876,6 +908,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritSKyuu3ValueCDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu4ValueCDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu4ValueCDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu4ValueCDMG").style.display = "inline"; }
+		if(parseInt(document.getElementById("TabCritSKyuu6ValueCDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu6ValueCDMG").style.display = "none"; }
+		else { document.getElementById("TabCritSKyuu6ValueCDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritETCTechterValueCDMG").innerHTML) == 100) { document.getElementById("TabCritETCTechterValueCDMG").style.display = "none"; }
 		else { document.getElementById("TabCritETCTechterValueCDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritETCBouncerValueCDMG").innerHTML) == 100) { document.getElementById("TabCritETCBouncerValueCDMG").style.display = "none"; }
@@ -913,6 +947,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritSKyuu3ValueUDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritSKyuu4ValueUDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu4ValueUDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu4ValueUDMG").style.display = "inline"; }
+		if(parseInt(document.getElementById("TabCritSKyuu6ValueUDMG").innerHTML) == 100) { document.getElementById("TabCritSKyuu6ValueUDMG").style.display = "none"; }
+		else { document.getElementById("TabCritSKyuu6ValueUDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritETCTechterValueUDMG").innerHTML) == 100) { document.getElementById("TabCritETCTechterValueUDMG").style.display = "none"; }
 		else { document.getElementById("TabCritETCTechterValueUDMG").style.display = "inline"; }
 		if(parseInt(document.getElementById("TabCritETCBouncerValueUDMG").innerHTML) == 100) { document.getElementById("TabCritETCBouncerValueUDMG").style.display = "none"; }
@@ -950,6 +986,8 @@ function UpdateCrit()
 		else { document.getElementById("TabCritSKyuu3ValueEDMG").style.display = "inline"; }
 		if(document.getElementById("TabCritSKyuu4ValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritSKyuu4ValueEDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSKyuu4ValueEDMG").style.display = "inline"; }
+		if(document.getElementById("TabCritSKyuu6ValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritSKyuu6ValueEDMG").style.display = "none"; }
+		else { document.getElementById("TabCritSKyuu6ValueEDMG").style.display = "inline"; }
 		if(document.getElementById("TabCritSenzaiValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritSenzaiValueEDMG").style.display = "none"; }
 		else { document.getElementById("TabCritSenzaiValueEDMG").style.display = "inline"; }
 		if(document.getElementById("TabCritETCTechterValueEDMG").innerHTML == "100.00%") { document.getElementById("TabCritETCTechterValueEDMG").style.display = "none"; }
