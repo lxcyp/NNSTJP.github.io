@@ -143,6 +143,10 @@ a
 	{
 		visibility:none;
 	}
+.TabCritClassEt
+	{
+		visibility:none;
+	}
 .TabCritSKyuu1ETC
 	{
 		display:none;
@@ -179,12 +183,12 @@ a
 	{
 		position:relative;
 		top:-1px;
-		width:50px;
+		width:52px;
 		height:18px;
 	}
 .TabCritSelectLv option
 	{
-		width:50px;
+		width:52px;
 		height:18px;
 	}
 .TabCritSelect

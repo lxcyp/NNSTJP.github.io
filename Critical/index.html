@@ -122,6 +122,21 @@
 							<div class="DivTableCellCrit"><span id="TabCritClassPhCriticalStreamValueUDMG">100%</span></div>
 							<div class="DivTableCellCrit"><span id="TabCritClassPhCriticalStreamValueEDMG"></span></div>
 						</div>
+						<div class="DivTableRow TabCritClassEt">
+							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritClassEtJACritical" onchange="UpdateSkill(this.id)">
+								<option value="0">Lv 0</option><option value="1">Lv 1</option>
+								<option value="2">Lv 2</option><option value="3">Lv 3</option>
+								<option value="4">Lv 4</option><option value="5">Lv 5</option>
+								<option value="6">Lv 6</option><option value="7">Lv 7</option>
+								<option value="8">Lv 8</option><option value="9">Lv 9</option>
+								<option value="10">Lv 10</option></select>
+							</div>
+							<div class="DivTableCellName"><img src="PNG/Skill/UISkillEtJACritical.png" class="TabCritImage">ETOILE JA CRITICAL</div>
+							<div class="DivTableCellCrit"><span id="TabCritClassEtJACriticalValueRate">0%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassEtJACriticalValueCDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassEtJACriticalValueUDMG">100%</span></div>
+							<div class="DivTableCellCrit"><span id="TabCritClassEtJACriticalValueEDMG"></span></div>
+						</div>
 						<div class="DivTableRow">
 							<div class="DivTableCell DivTableCellTop"><select class="TabCritSelectLv" id="TabCritRingRLv" style="display:none" onchange="UpdateRing()">
 								<option value="1">+ 1</option><option value="2">+ 2</option><option value="3">+ 3</option><option value="4">+ 4</option><option value="5">+ 5</option>
@@ -312,6 +327,11 @@
 						<div class="DivTableCellClass"><img src="PNG/Class/UIClassPh.png" class="TabClassImage"><span class="TabClassFont">PHANTOM</span></div>
 						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMPh" type="checkbox" value="Ph" onclick="SetClassM(this.value)"></div>
 						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSPh" type="checkbox" value="Ph" disabled onclick="SetClassS(this.value)"></div>
+					</div>
+					<div class="DivTableRow">
+						<div class="DivTableCellClass"><img src="PNG/Class/UIClassEt.png" class="TabClassImage"><span class="TabClassFont">ETOILE</span></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CMEt" type="checkbox" value="Et" onclick="SetClassM(this.value)"></div>
+						<div class="DivTableCellClass"><input class="TabClassCheckbox" id="CSEt" type="checkbox" value="Et" disabled onclick="SetClassS(this.value)"></div>
 					</div>
 				</div>
 			</div>
